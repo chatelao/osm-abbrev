@@ -1,5 +1,5 @@
-# * build postgresql-*-osml10n_*_amd64.deb
-# * run tests for the osml10n and osml10n_thai_transcript
+# * build postgresql-*-osmabbrv_*_amd64.deb
+# * run tests for the osmabbrv and osmabbrv_thai_transcript
 image: debian:10
 
 variables:
@@ -19,7 +19,7 @@ build:
     - mv ../*.deb ../*.buildinfo ../*.changes build
   artifacts:
     paths:
-      - build/postgresql-*-osml10n_*.deb
+      - build/postgresql-*-osmabbrv_*.deb
   tags:
     - IAD
 
@@ -28,7 +28,7 @@ test:
   stage: test
   before_script:
      - apt-get update
-     - apt-get -y install ./build/postgresql-*-osml10n_*_amd64.deb
+     - apt-get -y install ./build/postgresql-*-osmabbrv_*_amd64.deb
      - pip3 install tltk
   script:
     - ./tests/runtests_in_virtualenv.sh

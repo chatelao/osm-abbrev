@@ -1,4 +1,4 @@
-Source: osml10n
+Source: osmabbrv
 Section: misc
 Priority: extra
 Maintainer: Sven Geggus <sven-osm@geggus.net>
@@ -8,7 +8,7 @@ Build-Depends: debhelper (>= 8.0.0), libicu-dev,
  curl, libkakasi2-dev, libutf8proc-dev, pandoc
 Standards-Version: 3.9.2
 
-Package: postgresql-11-osml10n
+Package: postgresql-11-osmabbrv
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, postgresql-11, icu-devtools
 Recommends: postgresql-plpython3-11, python3-matplotlib, python3-pip, postgis

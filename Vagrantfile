@@ -46,16 +46,14 @@ Vagrant.configure("2") do |config|
     #
     # Build the L10N extensions
     #
-    cd ~
-    git clone https://github.com/chatelao/mapnik-german-l10n
+    cd /vagrant
     mk-build-deps -t 'apt-get -o Debug::pkgProblemResolver=yes --install-recommends -qqy' -i -r debian/control
     make install
 
     #
     # Deploy the L10N extensions to the database (gis)
     #
-    sudo -u postgres psql --dbname=gis --command="CREATE EXTENSION osml10n CASCADE"
-    sudo -u postgres psql --dbname=gis --command="CREATE EXTENSION osml10n_thai_transcript CASCADE"
+    sudo -u postgres psql --dbname=gis --command="CREATE EXTENSION osmabbrv CASCADE"
 
     #
     # Test the L10N extensions in the database (gis)

@@ -48,10 +48,10 @@ Thai transcript is a seperate extension because it is based on python
 (https://pypi.org/project/tltk/) and installing
 **postgresql-plpython3** is probably not an option for everybody.
 
-If osml10n_thai_transcript is not installed transcription for thai language
+If osmabbrv_thai_transcript is not installed transcription for thai language
 will fall back to libicu which will not produce very good results.
 
-To make osml10n_thai_transcript work tltk must be installed on the system
+To make osmabbrv_thai_transcript work tltk must be installed on the system
 level using the pip (pip3) package manager:
 
 ```sh
@@ -60,32 +60,32 @@ sudo pip3 install tltk
 
 ### 2. Load the required extensions into your database
 ```sql
-CREATE EXTENSION osml10n CASCADE;
-CREATE EXTENSION osml10n_thai_transcript CASCADE;
+CREATE EXTENSION osmabbrv CASCADE;
+CREATE EXTENSION osmabbrv_thai_transcript CASCADE;
 ```
 
 
 Afterwards you should be able to do the following:
 
 ```sql
-yourdb=# select osml10n_translit('北京');
- osml10n_translit
+yourdb=# select osmabbrv_translit('北京');
+ osmabbrv_translit
 ---------------
  běi jīng
  (1 row)
 ```
 
 ```sql
-yourdb=# select osml10n_kanji_transcript('漢字');
- osml10n_kanji_transcript
+yourdb=# select osmabbrv_kanji_transcript('漢字');
+ osmabbrv_kanji_transcript
 ---------------------
  kanji
  (1 row)
 ```
 
 ```sql
-yourdb=# select osml10n_thai_transcript('ถนนข้าวสาร');
- osml10n_thai_transcript
+yourdb=# select osmabbrv_thai_transcript('ถนนข้าวสาร');
+ osmabbrv_thai_transcript
 ---------------------
  thnn khaotan
  (1 row)

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This test needs a databse with osml10n extension enabled
+# This test needs a databse with osmabbrv extension enabled
 #
 #
 

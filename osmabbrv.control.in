@@ -1,4 +1,4 @@
-# osmabbrv extension (derived from osml10n)
+# osmabbrv extension (derived from osmabbrv)
 comment = 'Abbreviation functions for Openstreetmap based maps'
 default_version = 'VERSION'
 relocatable = true

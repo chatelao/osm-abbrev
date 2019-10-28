@@ -35,8 +35,6 @@ install: $(INSTALLDIRS) all
 	mkdir -p $(DESTDIR)$(EXTDIR)/extension
 	install -D -c -m 644 osmabbrv--$(EXTVERSION).sql $(DESTDIR)$(EXTDIR)/extension/
 	install -D -c -m 644 osmabbrv.control $(DESTDIR)$(EXTDIR)/extension/
-	install -D -c -m 644 osmabbrv_thai_transcript--$(EXTVERSION).sql $(DESTDIR)$(EXTDIR)/extension/
-	install -D -c -m 644 osmabbrv_thai_transcript.control $(DESTDIR)$(EXTDIR)/extension/
 	install -D -c -m 644 *.data $(DESTDIR)$(EXTDIR)/extension/
 
 $(INSTALLDIRS):
@@ -59,14 +57,8 @@ $(CLEANDIRS):
 osmabbrv--$(EXTVERSION).sql: plpgsql/*.sql country_languages.data
 	./gen_osmabbrv_extension.sh $(EXTDIR)/extension $(EXTVERSION)
 	
-osmabbrv_thai_transcript--$(EXTVERSION).sql: thaitranscript/*.sql
-	./gen_osmabbrv_thai_extension.sh $(EXTDIR)/extension $(EXTVERSION)
-
 osmabbrv.control: osmabbrv--$(EXTVERSION).sql
 	sed -e "s/VERSION/$(EXTVERSION)/g" osmabbrv.control.in >osmabbrv.control
-
-osmabbrv_thai_transcript.control: osmabbrv_thai_transcript--$(EXTVERSION).sql
-	sed -e "s/VERSION/$(EXTVERSION)/g" osmabbrv_thai_transcript.control.in >osmabbrv_thai_transcript.control
 
 country_languages.data:
 	grep -v \# country_languages.data.in >country_languages.data
