@@ -14,12 +14,10 @@ addons:
     - libkakasi2-dev
     - libutf8proc-dev
     - pandoc
-    - postgresql
-    - postgis
-    # - postgresql-server-dev-11
-    # - postgresql-11-postgis-2.5
+    - postgresql-11
+    - postgresql-11-postgis-2.5
     # - postgresql-11-postgis-2.5-scripts
-    # - postgresql-plpython3-11
+    - postgresql-plpython3-11
     - python3-pip
     - python3-setuptools
     - python3-matplotlib
