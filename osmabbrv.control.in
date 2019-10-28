@@ -1,0 +1,5 @@
+# osmabbrv extension (derived from osml10n)
+comment = 'Abbreviation functions for Openstreetmap based maps'
+default_version = 'VERSION'
+relocatable = true
+requires = 'postgis,hstore,unaccent,fuzzystrmatch'
