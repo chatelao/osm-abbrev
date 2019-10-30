@@ -43,11 +43,12 @@ echo
 # echo "'\$libdir/osmabbrv_kanjitranscript', 'osmabbrv_kanji_transcript'"
 # echo "LANGUAGE C STRICT;"
 # echo
-echo "-- enable ICU any-latin transliteration function -----------------------------------------------------------------"
-echo
-echo "CREATE OR REPLACE FUNCTION osmabbrv_translit(text)RETURNS text AS"
-echo "'\$libdir/osmabbrv_translit', 'osmabbrv_translit'"
-echo "LANGUAGE C STRICT;" ) >>osmabbrv--$2.sql
+# echo "-- enable ICU any-latin transliteration function -----------------------------------------------------------------"
+# echo
+# echo "CREATE OR REPLACE FUNCTION osmabbrv_translit(text)RETURNS text AS"
+# echo "'\$libdir/osmabbrv_translit', 'osmabbrv_translit'"
+# echo "LANGUAGE C STRICT;"
+) >>osmabbrv--$2.sql
 
 for f in $SCRIPTS; do
   bn=$(basename $f)
