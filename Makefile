@@ -5,7 +5,7 @@ EXTVERSION=$(shell head -n1 debian/changelog |cut -d \( -f 2 |cut -d \) -f 1)
 
 EXTDIR=$(shell pg_config --sharedir)
 
-SUBDIRS = kanjitranscript icutranslit
+# SUBDIRS = kanjitranscript icutranslit
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 
