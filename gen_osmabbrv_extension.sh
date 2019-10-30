@@ -37,13 +37,13 @@ SCRIPTS=plpgsql/*
 echo "-- complain if script is sourced in psql, rather than via CREATE EXTENSION"
 echo '\echo Use "CREATE EXTENSION osmabbrv" to load this file. \quit'
 echo
+# echo "-- enable libkakasi based kanji transcription function -----------------------------------------------------------------" 
+# echo
+# echo "CREATE OR REPLACE FUNCTION osmabbrv_kanji_transcript(text)RETURNS text AS"
+# echo "'\$libdir/osmabbrv_kanjitranscript', 'osmabbrv_kanji_transcript'"
+# echo "LANGUAGE C STRICT;"
+# echo
 echo "-- enable ICU any-latin transliteration function -----------------------------------------------------------------"
-echo
-echo "CREATE OR REPLACE FUNCTION osmabbrv_kanji_transcript(text)RETURNS text AS"
-echo "'\$libdir/osmabbrv_kanjitranscript', 'osmabbrv_kanji_transcript'"
-echo "LANGUAGE C STRICT;"
-echo
-echo "-- enable libkakasi based kanji transcription function -----------------------------------------------------------------" 
 echo
 echo "CREATE OR REPLACE FUNCTION osmabbrv_translit(text)RETURNS text AS"
 echo "'\$libdir/osmabbrv_translit', 'osmabbrv_translit'"
