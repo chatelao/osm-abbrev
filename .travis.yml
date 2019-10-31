@@ -10,11 +10,8 @@ addons:
     packages:
     - devscripts
     - equivs
-    - libkakasi2-dev
-    - libutf8proc-dev
     - pandoc
     - postgis
-    - postgresql-plpython3
 
 before_install:
   - sudo mk-build-deps -i debian/control
