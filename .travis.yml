@@ -16,7 +16,7 @@ addons:
 before_install:
   - sudo mk-build-deps -i debian/control
   
-  - sudo -u postgres createuser travis
+  - createuser travis
   - createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 gis
   - psql --dbname=gis --command="CREATE EXTENSION fuzzystrmatch"
   - psql --dbname=gis --command="CREATE EXTENSION unaccent"
