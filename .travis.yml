@@ -5,7 +5,6 @@ env:
     - PGPORT=5433
 
 addons:
-  # postgresql: 11
   apt:
     update: true  
     packages:
@@ -15,11 +14,12 @@ addons:
     - libutf8proc-dev
     - pandoc
     - postgis
-    - postgresql-plpython3-11
+    - postgresql-plpython3
 
 before_install:
   - sudo mk-build-deps -i debian/control
 
+  - sudo -u postgres createuser -g gis root
   - createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 gis
   - psql --dbname=gis --command="CREATE EXTENSION fuzzystrmatch"
   - psql --dbname=gis --command="CREATE EXTENSION unaccent"
