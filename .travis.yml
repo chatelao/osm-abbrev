@@ -12,19 +12,18 @@ addons:
 services:
   - postgresql
 
-before_install:
+# before_install:
+install:
   - sudo mk-build-deps -i debian/control
   
-  # - service postgresql start
   - pg_lsclusters
-  - createuser travis
-  - createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 gis
+  - sudo -u postgre createuser travis
+  - sudo -u postgre createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 gis
   - psql --dbname=gis --command="CREATE EXTENSION fuzzystrmatch"
   - psql --dbname=gis --command="CREATE EXTENSION unaccent"
   - psql --dbname=gis --command="CREATE EXTENSION postgis"
   - psql --dbname=gis --command="CREATE EXTENSION hstore"
 
-install:
   - cd ${TRAVIS_BUILD_DIR}
   - sudo make install
   - psql --dbname=gis --command="CREATE EXTENSION osmabbrv"
