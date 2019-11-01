@@ -10,7 +10,7 @@ addons:
     - postgis
 
 services:
-  - postgresql
+  - postgresql-10
 
 # before_install:
 install:
