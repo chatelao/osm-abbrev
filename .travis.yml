@@ -21,7 +21,7 @@ install:
   - psql --dbname=gis --command="CREATE EXTENSION hstore"
 
   - cd ${TRAVIS_BUILD_DIR}
-  - sudo make install
+  - make install
   - psql --dbname=gis --command="CREATE EXTENSION osmabbrv"
 
 script:
