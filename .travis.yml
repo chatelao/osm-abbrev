@@ -8,7 +8,7 @@ addons:
     - devscripts
     - equivs
     - pandoc
-    - postgis
+    - postgresql-10-postgis-2.4
 
 install:
   - sudo mk-build-deps -i debian/control
