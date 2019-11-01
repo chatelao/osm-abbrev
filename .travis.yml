@@ -1,6 +1,7 @@
 dist: bionic
 
 addons:
+  postgresql: '10'
   apt:
     update: true  
     packages:
@@ -9,10 +10,6 @@ addons:
     - pandoc
     - postgis
 
-services:
-  - postgresql-10
-
-# before_install:
 install:
   - sudo mk-build-deps -i debian/control
   
