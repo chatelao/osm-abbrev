@@ -2,7 +2,7 @@
 
 # Get extension version number from debian/changelog 
 EXTVERSION=$(shell head -n1 debian/changelog |cut -d \( -f 2 |cut -d \) -f 1)
-EXTDIR=$(shell pg_config --sharedir)
+EXTDIR=$(shell sudo -u postgres pg_config --sharedir)
 
 # SUBDIRS = kanjitranscript icutranslit
 CLEANDIRS = $(SUBDIRS:%=clean-%)
