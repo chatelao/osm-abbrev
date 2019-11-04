@@ -2,13 +2,16 @@
 
 # Get extension version number from debian/changelog 
 EXTVERSION=$(shell head -n1 debian/changelog |cut -d \( -f 2 |cut -d \) -f 1)
+
 echo $(EXTVERSION)
 
 EXTDIR=$(shell pg_config --sharedir)
+
 echo $(EXTDIR)
 
 # SUBDIRS = kanjitranscript icutranslit
 CLEANDIRS = $(SUBDIRS:%=clean-%)
+
 echo $(CLEANDIRS)
 
 INSTALLDIRS = $(SUBDIRS:%=install-%)
