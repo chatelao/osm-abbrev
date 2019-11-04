@@ -2,20 +2,11 @@
 
 # Get extension version number from debian/changelog 
 EXTVERSION=$(shell head -n1 debian/changelog |cut -d \( -f 2 |cut -d \) -f 1)
-
-echo $(EXTVERSION)
-
 EXTDIR=$(shell pg_config --sharedir)
-
-echo $(EXTDIR)
 
 # SUBDIRS = kanjitranscript icutranslit
 CLEANDIRS = $(SUBDIRS:%=clean-%)
-
-echo $(CLEANDIRS)
-
 INSTALLDIRS = $(SUBDIRS:%=install-%)
-echo $(INSTALLDIRS)
 
 all: $(patsubst %.md,%.html,$(wildcard *.md)) INSTALL README Makefile $(SUBDIRS) osmabbrv.control country_languages.data  osmabbrv_country_osm_grid.data
 
@@ -41,6 +32,9 @@ $(SUBDIRS):
 # so will do it manually (fo now)
 install: $(INSTALLDIRS) all 
 	mkdir -p $(DESTDIR)$(EXTDIR)/extension
+	echo $(INSTALLDIRS)
+	echo $(DESTDIR)
+	echo $(EXTDIR)
 	install -D -c -m 644 osmabbrv--$(EXTVERSION).sql $(DESTDIR)$(EXTDIR)/extension/
 	install -D -c -m 644 osmabbrv.control $(DESTDIR)$(EXTDIR)/extension/
 	install -D -c -m 644 *.data $(DESTDIR)$(EXTDIR)/extension/
