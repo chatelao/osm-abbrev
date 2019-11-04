@@ -23,6 +23,7 @@ install:
 
   - cd ${TRAVIS_BUILD_DIR}
   - sudo make install
+  - ls -ltra /usr/share/postgresql/10/extension
   - psql --dbname=gis --command="CREATE EXTENSION osmabbrv"
 
 script:
