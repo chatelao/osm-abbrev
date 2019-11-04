@@ -1,4 +1,5 @@
-Doktor-No-Straße,Dr.-No-Str.,Doktor-,Dr.-,https://tile.openstreetmap.org/18/136494/92271.png
-Schillerstraße,Schillerstr.,Straße,Str.,
+Doktor-No-Straße,Dr.-No-Str.,Doktor-,Dr.-,
+Tillerstrasse,Tillerstr.,stra(ss|ß)e\M,str.,https://tile.openstreetmap.org/18/136494/92271.png
+Tillerstraße,Tillerstr.,stra(ss|ß)e\M,str.,https://tile.openstreetmap.org/18/136494/92271.png
 Kronenplatz,Kronenpl.,platz\M,pl.,https://tile.openstreetmap.de/19/277196/173636.png
 Gottesauer Platz,Gottesauer Pl.,Platz\M,Pl.,https://tile.openstreetmap.org/19/274411/180036.png
