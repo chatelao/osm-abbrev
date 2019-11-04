@@ -2,7 +2,8 @@
 
 # Get extension version number from debian/changelog 
 EXTVERSION=$(shell head -n1 debian/changelog |cut -d \( -f 2 |cut -d \) -f 1)
-EXTDIR=$(shell sudo -u postgres pg_config --sharedir)
+# EXTDIR=$(shell sudo -u postgres pg_config --sharedir)
+EXTDIR=/usr/share/postgresql/10/extension/
 
 # SUBDIRS = kanjitranscript icutranslit
 CLEANDIRS = $(SUBDIRS:%=clean-%)
@@ -32,9 +33,6 @@ $(SUBDIRS):
 # so will do it manually (fo now)
 install: $(INSTALLDIRS) all 
 	mkdir -p $(DESTDIR)$(EXTDIR)/extension
-	echo $(INSTALLDIRS)
-	echo $(DESTDIR)
-	echo $(EXTDIR)
 	install -D -c -m 644 osmabbrv--$(EXTVERSION).sql $(DESTDIR)$(EXTDIR)/extension/
 	install -D -c -m 644 osmabbrv.control $(DESTDIR)$(EXTDIR)/extension/
 	install -D -c -m 644 *.data $(DESTDIR)$(EXTDIR)/extension/
