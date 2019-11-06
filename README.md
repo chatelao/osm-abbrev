@@ -1,6 +1,6 @@
-#  osm-abbrev
+#  OSM Abbreviations
 
-The **osm-abbrev** project provides a collection of abbreviation rules for geographic names, especially of streets and places.
+The **osm-abbrev** project provides rules to abbreviate geographic names, especially of streets and places.
 
 ## Why abbreviations for street and place names?
 
