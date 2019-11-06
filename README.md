@@ -1,17 +1,16 @@
-#  OSM map l10n functions
-## (from german mapnik style)
+#  osm-abbrev
 
-All l10n functions from german mapnik style are implemented as PL/pgSQL stored procedures
-and are therefore usable in a renderer independent way.
+The **osm-abbrev** project provide a collection of abbreviation rules for geographic names, especially of streets and places.
 
-For this reason they are now hosted in their own repository.
+## Why abbreviations for street and place names?
 
-Currently the code consists of three parts:
+Abbreviated street names on maps, allow to provide information on the same space. See below the comparison between [OpenStreetMap.org](www.OpenStreetMap.org) with long and [OpenStreetMap.de](www.OpenStreetMap.de/karte.html) with shortend street names.
 
-1. An "Any-Latin" transliterate function using libicu
-2. A japanese kanji transliterate function using libkakasi
-3. A couple of PL/pgSQL functions which can be used to generate labels for
-   map rendering.
+| Long names | Short names |
+| --- | --- |
+| ![Long](https://b.tile.openstreetmap.org/16/34123/23067.png)| ![Short names](https://b.tile.openstreetmap.de/16/34123/23067.png) |
+
+## Installation
 
 See **INSTALL.md** file from sources for manual installation instructions.
 If you just installed the debian package all you have to do now ist to enable
@@ -21,63 +20,8 @@ our extension in your PostgreSQL database as follows:
 CREATE EXTENSION osmabbrv;
 ```
 
-### API
-The following functions are provided for use in map rendering:
+## Usage
 
+###
 
-__`osmabbrv_get_placename_from_tags(tags hstore, loc_in_brackets boolean, show_brackets boolean DEFAULT false, separator text DEFAULT chr(10), targetlang text DEFAULT 'de', place geometry DEFAULT NULL, name text DEFAULT NULL)`__
-:	Will try its best to return a usable name pair with both a localiced name and an on site name
-
-__`osmabbrv_get_streetname_from_tags(tags hstore, loc_in_brackets boolean, show_brackets boolean DEFAULT false, separator text DEFAULT ' - ', targetlang text DEFAULT 'de', place geometry DEFAULT NULL, name text DEFAULT NULL)`__
-:	Same as get_localized_placename_from_tags, but with some common abbreviations for street names (Straße->Str.), if name ist longer than 15 characters
-
-__`osmabbrv_get_name_without_brackets_from_tags(tags hstore, loc_in_brackets boolean, targetlang text DEFAULT 'de', place geometry DEFAULT NULL, name text DEFAULT NULL)`__
-:	Produces localiced name only output (on site name will be discarded)
-
-__`osmabbrv_get_country_name(tags hstore, separator text DEFAULT chr(10), targetlang text DEFAULT 'de')`__
-:	Generate a combined country name from name:xx tags (targetlang plus official languages of the country)
-
-
-A convinient way of using these functions is to hide them behind virtual colums using database views.
-
-### Examples
-
-```sql
-select osmabbrv_get_placename_from_tags('"name"=>"Москва́","name:de"=>"Moskau","name:en"=>"Moscow"',true) as name;
-       -->	Москва́
-       -->	Moskau
-select osmabbrv_get_placename_from_tags('"name"=>"Москва́","name:de"=>"Moskau","name:en"=>"Moscow"',false) as name;
-       -->	Moskau
-       -->	Москва́
-select osmabbrv_get_placename_from_tags('"name"=>"القاهرة","name:de"=>"Kairo","int_name"=>"Cairo","name:en"=>"Cairo"',false) as name;
-       -->	Kairo
-       -->	القاهرة
-select osmabbrv_get_placename_from_tags('name=>"Brixen Bressanone",name:de=>"Brixen",name:it=>"Bressanone"',false);
-       -->	Brixen
-       --> 	Bressanone
-select osmabbrv_get_placename_from_tags('"name"=>"Roma","name:de"=>"Rom"',false) as name;
-       -->	Rom
-       -->	Roma
-select osmabbrv_get_streetname_from_tags('"name"=>"Doktor-No-Straße"',false) as name;
-       -->	Dr.-No-Str.
-select osmabbrv_get_streetname_from_tags('"name"=>"Dr. No Street","name:de"=>"Professor-Doktor-No-Straße"',false) as name;
-       -->	Prof.-Dr.-No-Str. - Dr. No St.
-select osmabbrv_get_name_without_brackets_from_tags('"name"=>"Dr. No Street","name:de"=>"Doktor-No-Straße"') as name;
-       -->	Doktor-No-Straße
-select osmabbrv_get_streetname_from_tags('"name"=>"улица Воздвиженка","name:en"=>"Vozdvizhenka Street"',true,true,' ','de') as name;
-       -->	ул. Воздвиженка (Vozdvizhenka St.)
-select osmabbrv_get_streetname_from_tags('"name"=>"улица Воздвиженка"',true,true,' ','de') as name;
-       -->	ул. Воздвиженка (ul. Vozdviženka)
-select osmabbrv_get_streetname_from_tags('"name"=>"вулиця Молока"',true,false,' - ','de') as name;
-       -->	вул. Молока - vul. Moloka
-select osmabbrv_get_placename_from_tags('"name"=>"주촌  Juchon", "name:ko"=>"주촌","name:ko-Latn"=>"Juchon"',true) as name;
-       -->	주촌
-       -->	Juchon
-select osmabbrv_get_placename_from_tags('"name"=>"주촌", "name:ko"=>"주촌","name:ko-Latn"=>"Juchon"',false) as name;
-       -->	Juchon
-       -->	J주촌
-select osmabbrv_get_country_name('"ISO3166-1:alpha2"=>"IN","name:de"=>"Indien","name:hi"=>"भारत","name:en"=>"India"') as name;
-       -->	Indien
-       -->	भारत
-       -->	India
-```
+The following functions are provided for use in the database. This sample will return ```sql SELECT abbrev_all('Gutenbergstrasse')``` Gutenbergstr. to be used later.
