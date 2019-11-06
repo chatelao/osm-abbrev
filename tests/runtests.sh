@@ -40,50 +40,43 @@ function printresult() {
   echo -e "(expected >$2<, got >$1<)"
 }
 
-echo "select osmabbrv_street_abbrev_all('Professor-Doktor-No-Straße');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrv_street_abbrev_all('Professor-Doktor-No-Straße');
-EOF
-)
-printresult "$res" "‪Prof.-Dr.-No-Str."
-
-echo "select osmabbrv_street_abbrev_all('Doktor-No-Straße');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrv_street_abbrev_all('Doktor-No-Straße');
-EOF
-)
-printresult "$res" "Dr.-No-Str."
-
 IFS=,
 echo -e "\n---- German abbreviations, data from de_test.csv ----"
-while read nameIn nameExpected nameRuleLong nameRuleShort
-do
-  stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-  echo ${stmt}
-  res=$(psql -X -t -A $DB -c "${stmt}")
-  printresult "$res" "${nameExpected}"
-done < ../defs/de_tests.csv
+{ 
+  read
+  while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
+  do
+    stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
+    echo ${stmt}
+    res=$(psql -X -t -A $DB -c "${stmt}")
+    printresult "$res" "${nameExpected}"
+  done
+} < ../defs/de_tests.csv
 
 IFS=,
 echo -e "\n---- English abbreviations, data from en_test.csv ----"
-while read nameIn nameExpected
-do
-  stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-  echo ${stmt}
-  res=$(psql -X -t -A $DB -c "${stmt}")
-  printresult "$res" "${nameExpected}"
-done < ../defs/en_tests.csv
+{ 
+  read
+  while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
+  do
+    stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
+    echo ${stmt}
+    res=$(psql -X -t -A $DB -c "${stmt}")
+    printresult "$res" "${nameExpected}"
+  done
+} < ../defs/en_tests.csv
 
 echo -e "\n---- French abbreviations, data from fr_test.csv ----"
-while read nameIn nameExpected
-do
-  stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-  echo ${stmt}
-  res=$(psql -X -t -A $DB -c "${stmt}")
-  printresult "$res" "${nameExpected}"
-done < ../defs/fr_tests.csv
-
-echo
+{ 
+  read
+  while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
+  do
+    stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
+    echo ${stmt}
+    res=$(psql -X -t -A $DB -c "${stmt}")
+    printresult "$res" "${nameExpected}"
+  done
+} < ../defs/fr_tests.csv
 
 echo "select osmabbrv_street_abbrev_all('улица Воздвиженка');"
 res=$(psql -X -t -A $DB <<EOF
