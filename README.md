@@ -22,7 +22,11 @@ CREATE EXTENSION osmabbrv;
 
 ## Usage
 
-The following functions are provided for use in the database. This sample will return ```sql SELECT abbrev_all('Gutenbergstrasse')``` Gutenbergstr. to be used later.
+The following functions are provided for use in the database. This sample will return
+```sql
+SELECT abbrev_all('Gutenbergstrasse')
+```
+Gutenbergstr. to be used later.
 
 ## Special thanks
 
