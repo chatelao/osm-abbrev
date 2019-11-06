@@ -15,6 +15,9 @@ install:
   
   - pg_lsclusters
   - pg_config --sharedir
+  - sudo pg_config --sharedir
+  - sudo -u postgres pg_config --sharedir
+  - pg_config --sharedir
   - createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 gis
   - psql --dbname=gis --command="CREATE EXTENSION fuzzystrmatch"
   - psql --dbname=gis --command="CREATE EXTENSION unaccent"
