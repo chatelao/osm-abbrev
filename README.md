@@ -1,6 +1,6 @@
 #  osm-abbrev
 
-The **osm-abbrev** project provide a collection of abbreviation rules for geographic names, especially of streets and places.
+The **osm-abbrev** project provides a collection of abbreviation rules for geographic names, especially of streets and places.
 
 ## Why abbreviations for street and place names?
 
@@ -22,6 +22,8 @@ CREATE EXTENSION osmabbrv;
 
 ## Usage
 
-###
-
 The following functions are provided for use in the database. This sample will return ```sql SELECT abbrev_all('Gutenbergstrasse')``` Gutenbergstr. to be used later.
+
+## Special thanks
+
+The technical foundation and inspiration is the [mapnik-german-l10n](https://github.com/giggls/mapnik-german-l10n) project, which provides a fabulous support to transliterate maps.
