@@ -4,7 +4,7 @@ The **osm-abbrev** project provides rules to abbreviate geographic names, especi
 
 ## Why abbreviations for street and place names?
 
-Abbreviated street names on maps, allow to provide information on the same space. See below the comparison between [OpenStreetMap.org](www.OpenStreetMap.org) with long and [OpenStreetMap.de](www.OpenStreetMap.de/karte.html) with shortend street names.
+Abbreviated street names on maps, allow to provide information on the same space. See below the comparison between [OpenStreetMap.org](https://www.OpenStreetMap.org) with long and [OpenStreetMap.de](https://www.OpenStreetMap.de/karte.html) with shortend street names.
 
 | Long names | Short names |
 | --- | --- |
