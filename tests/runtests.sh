@@ -31,7 +31,7 @@ failed=0
 function printresult() {
   if [ "$1" = "$2" ]; then
     echo -n -e "[\033[0;32mOK\033[0;0m]     "
-    ((passed++))
+    ((passed++))§
   else
     echo -n -e "[\033[1;31mFAILED\033[0;0m] "
     ((failed++))
@@ -40,32 +40,25 @@ function printresult() {
   echo -e "(expected >$2<, got >$1<)"
 }
 
-echo "select osmabbrev_get_streetname_from_tags('"name"=>"Dr. No Street","name:de"=>"Professor-Doktor-No-Straße"',false);"
+echo "select osmabbrv_street_abbrev_all('Professor-Doktor-No-Straße');"
 res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_streetname_from_tags('"name"=>"Dr. No Street","name:de"=>"Professor-Doktor-No-Straße"',false);
+select osmabbrv_street_abbrev_all('Professor-Doktor-No-Straße');
 EOF
 )
-printresult "$res" "‪Prof.-Dr.-No-Str. - Dr. No St.‬"
+printresult "$res" "‪Prof.-Dr.-No-Str."
 
-echo "select osmabbrev_get_name_without_brackets_from_tags('"name"=>"Dr. No Street","name:de"=>"Doktor-No-Straße"');"
+echo "select osmabbrv_street_abbrev_all('Doktor-No-Straße');"
 res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_name_without_brackets_from_tags('"name"=>"Dr. No Street","name:de"=>"Doktor-No-Straße"');
+select osmabbrv_street_abbrev_all('Doktor-No-Straße');
 EOF
 )
-printresult "$res" "Doktor-No-Straße"
-
-echo "select osmabbrev_get_name_without_brackets_from_tags('"name:de"=>"Doktor-No-Straße"','de',NULL,'Dr. No Street');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_name_without_brackets_from_tags('"name:de"=>"Doktor-No-Straße"','de',NULL,'Dr. No Street');
-EOF
-)
-printresult "$res" "Doktor-No-Straße"
+printresult "$res" "Dr.-No-Str."
 
 IFS=,
 echo -e "\n---- German abbreviations, data from de_test.csv ----"
 while read nameIn nameExpected
 do
-  stmt="select osmabbrev_get_streetname_from_tags('\"name\"=>\"${nameIn}\"',false);"
+  stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
   echo ${stmt}
   res=$(psql -X -t -A $DB -c "${stmt}")
   printresult "$res" "${nameExpected}"
@@ -75,7 +68,7 @@ IFS=,
 echo -e "\n---- English abbreviations, data from en_test.csv ----"
 while read nameIn nameExpected
 do
-  stmt="select osmabbrev_get_streetname_from_tags('\"name\"=>\"${nameIn}\"',false);"
+  stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
   echo ${stmt}
   res=$(psql -X -t -A $DB -c "${stmt}")
   printresult "$res" "${nameExpected}"
@@ -84,7 +77,7 @@ done < ../defs/en_tests.csv
 echo -e "\n---- French abbreviations, data from fr_test.csv ----"
 while read nameIn nameExpected
 do
-  stmt="select osmabbrev_get_streetname_from_tags('\"name\"=>\"${nameIn}\"',false);"
+  stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
   echo ${stmt}
   res=$(psql -X -t -A $DB -c "${stmt}")
   printresult "$res" "${nameExpected}"
@@ -92,72 +85,27 @@ done < ../defs/fr_tests.csv
 
 echo
 
-echo "select osmabbrev_get_streetname_from_tags('"name"=>"улица Воздвиженка","name:en"=>"Vozdvizhenka Street"',true,true,' ','de');"
+echo "select osmabbrv_street_abbrev_all('улица Воздвиженка');"
 res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_streetname_from_tags('"name"=>"улица Воздвиженка","name:en"=>"Vozdvizhenka Street"',true,true,' ','de');
+select osmabbrv_street_abbrev_all('улица Воздвиженка');
 EOF
 )
-printresult "$res" "‪ул. Воздвиженка (Vozdvizhenka St.)‬"
+printresult "$res" "‪ул. Воздвиженка"
 
 #  Russian language
-echo "select osmabbrev_get_streetname_from_tags('"name"=>"улица Воздвиженка"',true,true,' ','de');"
+echo "select osmabbrv_street_abbrev_all('улица Воздвиженка');"
 res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_streetname_from_tags('"name"=>"улица Воздвиженка"',true,true,' ','de');
+select osmabbrv_street_abbrev_all('улица Воздвиженка');
 EOF
 )
-printresult "$res" "‪ул. Воздвиженка (ul. Vozdviženka)‬"
+printresult "$res" "‪ул. Воздвиженка"
 
 # Belarusian language (AFAIK)
-echo "select osmabbrev_get_streetname_from_tags('"name"=>"вулиця Молока"',true,false,' - ','de');"
+echo "select osmabbrv_street_abbrev_all('вулиця Молока');"
 res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_streetname_from_tags('"name"=>"вулиця Молока"',true,false,' - ','de');
+select osmabbrv_street_abbrev_all('вулиця Молока');
 EOF
 )
-printresult "$res" "‪вул. Молока - vul. Moloka‬"
-
-# upstream carto style database layout
-echo "select osmabbrev_get_streetname_from_tags('',true,false,' - ','de',NULL,'вулиця Молока');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_streetname_from_tags('',true,false,' - ','de',NULL,'вулиця Молока');
-EOF
-)
-printresult "$res" "‪вул. Молока - vul. Moloka‬"
-
-echo "select osmabbrev_get_placename_from_tags('"name"=>"주촌  Juchon", "name:ko"=>"주촌","name:ko-Latn"=>"Juchon"',true,false,'|');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_placename_from_tags('"name"=>"주촌  Juchon", "name:ko"=>"주촌","name:ko_rm"=>"Juchon"',true,false,'|');
-EOF
-)
-printresult "$res" "‪주촌|Juchon‬"
-
-echo "select osmabbrev_get_placename_from_tags('"name"=>"주촌", "name:ko"=>"주촌","name:ko-Latn"=>"Juchon"',false,false,'|');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_placename_from_tags('"name"=>"주촌", "name:ko"=>"주촌","name:ko_rm"=>"Juchon"',false,false,'|');
-EOF
-)
-printresult "$res" "‪Juchon|주촌‬"
-
-echo "select osmabbrev_get_streetname_from_tags('"name"=>"ဘုရားကိုင်လမ်း Pha Yar Kai Road", "highway"=>"secondary", "name:en"=>"Pha Yar Kai Road", "name:my"=>"ဘုရားကိုင်လမ်း"',true,false,'|');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_streetname_from_tags('"name"=>"ဘုရားကိုင်လမ်း Pha Yar Kai Road", "highway"=>"secondary", "name:en"=>"Pha Yar Kai Road", "name:my"=>"ဘုရားကိုင်လမ်း"',true,false,'|');
-EOF
-)
-printresult "$res" "‪ဘုရားကိုင်လမ်း|Pha Yar Kai Rd.‬"
-
-echo "select osmabbrev_get_streetname_from_tags('"name"=>"ဘုရားကိုင်လမ်း", "highway"=>"secondary", "name:en"=>"Pha Yar Kai Road", "name:my"=>"ဘုရားကိုင်လမ်း"',true,false,'|');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_streetname_from_tags('"name"=>"ဘုရားကိုင်လမ်း", "highway"=>"secondary", "name:en"=>"Pha Yar Kai Road", "name:my"=>"ဘုရားကိုင်လမ်း"',true,false,'|');
-EOF
-)
-printresult "$res" "‪ဘုရားကိုင်လမ်း|Pha Yar Kai Rd.‬"
-
-echo "select osmabbrev_get_country_name('"ISO3166-1:alpha2"=>"IN","name:de"=>"Indien","name:hi"=>"भारत","name:en"=>"India"','|');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrev_get_country_name('"ISO3166-1:alpha2"=>"IN","name:de"=>"Indien","name:hi"=>"भारत","name:en"=>"India"','|');
-EOF
-)
-printresult "$res" "Indien|भारत|India"
-
-echo -e "\n$passed tests passed $failed tests failed."
+printresult "$res" "‪вул. Молока"
 
 exit $exitval
