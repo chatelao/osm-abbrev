@@ -1,11 +1,17 @@
-Beispiel lang,Beispiel gekürzt,Regel lang,Regel gekürzt,Beispiel URL
-Tillerstrasse,Tillerstr.,stra(ss|ß)e\M,str.,https://tile.openstreetmap.org/18/136494/92271.png
-Tillerstraße,Tillerstr.,stra(ss|ß)e\M,str.,
-Kronenplatz,Kronenpl.,platz\M,pl.,https://tile.openstreetmap.de/19/277196/173636.png
+Sample long,Sample short,Rule long,Rule short,Sample URL
+Tillerstrasse,Tillerstr.,strasse\M,str.,https://tile.openstreetmap.org/18/136494/92271.png
+Schwarzwaldstraße,Schwarzwaldstr.,straße\M,str.,https://c.tile.openstreetmap.org/16/34200/22784.png
+Kronenplatz,Kronenpl.,platz\M,pl.,https://tile.openstreetmap.org/19/277196/173636.png
 Gottesauer Platz,Gottesauer Pl.,Platz\M,Pl.,https://tile.openstreetmap.org/19/274411/180036.png
-Münstergasse,Münsterg.,gasse\M,g.,
-Doktor-No-Straße,Dr.-No-Str.,Doktor-,Dr.-,
-,,Professor,Prof.,
-,,Bürgermeister,Bgm.,
-Sankt Gotthard,St. Gotthard,Sankt,St.,
-Sankt-Gotthard,St.-Gotthard,Sankt-,St.-,
+Kreuzgasse,Kreuzg.,(?!^)gasse\M,g.,https://b.tile.openstreetmap.org/19/272997/184516.png
+Hohle Gasse,Hohle G.,(?!^)Gasse\M,G.,https://a.tile.openstreetmap.org/17/69023/45976.png
+Gassenäckerstrasse,Gassenäckerstr.,,,https://a.tile.openstreetmap.org/17/68924/45811.png
+Doktor-Rohmer-Weg,Dr.-Rohmer-Weg,Doktor,Dr.,https://a.tile.openstreetmap.org/17/68608/44399.png
+Professor Ludwig Strauchgasse,Prof. Ludwig Strauchg.,Professor,Prof.,https://c.tile.openstreetmap.org/17/71474/45390.png
+Bürgermeister-Wagner-Strasse,Bgm.-Wagner-Str.,Bürgermeister,Bürgermeister,Bgm.,https://c.tile.openstreetmap.org/18/139109/87789.png
+Sankt Gallerstrasse,St. Gallerstr.,Sankt\M,St.,https://b.tile.openstreetmap.org/18/137578/91647.png
+Sankt-Zeno-Gasse,St.-Zeno-G.,,,https://a.tile.openstreetmap.org/19/276157/183842.png
+Obere Hauptgasse,Ob. Hauptg.,^Obere[rs]?,Ob.,https://a.tile.openstreetmap.org/18/136629/92460.png
+Unterer Aareggweg,Unt. Aareggweg,^Untere[rs]?,Unt.,https://c.tile.openstreetmap.org/18/136499/92232.png
+Vorderer Schermenweg,Vord. Schermenweg,Vordere[rs]\M,Vord.,https://b.tile.openstreetmap.org/17/68258/46115.png
+Hintere Engehaldenstrasse,Hint. Engehaldenstr.,Hintere[rs]\M,Hint.,https://c.tile.openstreetmap.org/18/136494/92234.png

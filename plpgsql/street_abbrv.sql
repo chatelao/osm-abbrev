@@ -70,10 +70,13 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_latin(longname text) RETURNS T
  DECLARE
   abbrev text;
  BEGIN
-  abbrev=osmabbrv_street_abbrev_en(longname);
+  abbrev=longname;
+  abbrev=osmabbrv_street_abbrev_en(abbrev);
+  abbrev=osmabbrv_street_abbrev_es(abbrev);
   abbrev=osmabbrv_street_abbrev_de(abbrev);
   abbrev=osmabbrv_street_abbrev_fr(abbrev);
   abbrev=osmabbrv_street_abbrev_nl(abbrev);
+  abbrev=osmabbrv_street_abbrev_pt(abbrev);
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
