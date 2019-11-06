@@ -31,7 +31,7 @@ failed=0
 function printresult() {
   if [ "$1" = "$2" ]; then
     echo -n -e "[\033[0;32mOK\033[0;0m]     "
-    ((passed++))§
+    ((passed++))
   else
     echo -n -e "[\033[1;31mFAILED\033[0;0m] "
     ((failed++))
