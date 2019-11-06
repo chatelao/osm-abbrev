@@ -56,7 +56,7 @@ printresult "$res" "Dr.-No-Str."
 
 IFS=,
 echo -e "\n---- German abbreviations, data from de_test.csv ----"
-while read nameIn nameExpected
+while read nameIn nameExpected nameRuleLong nameRuleShort
 do
   stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
   echo ${stmt}
