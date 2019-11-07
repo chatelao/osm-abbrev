@@ -12,7 +12,6 @@ Abbreviated street names on maps, allow to provide information on the same space
 
 ## Installation
 
-See **INSTALL.md** file from sources for manual installation instructions.
 If you just installed the debian package all you have to do now ist to enable
 our extension in your PostgreSQL database as follows:
 
@@ -27,6 +26,12 @@ The following functions are provided for use in the database. This sample will r
 SELECT abbrev_all('Gutenbergstrasse')
 ```
 Gutenbergstr. to be used later.
+
+## ToDo
+1. [ ] Export .csv definition to pgSQL (PostGre Extension).
+1. [ ] Export .csv definition to JSON.
+1. [ ] Export .csv definition to XML.
+1. [ ] Export .csv definition to Python.
 
 ## Special thanks
 
