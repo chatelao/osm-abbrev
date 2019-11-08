@@ -16,5 +16,5 @@ Sankt Gallerstrasse,St. Gallerstr.,Sankt\M,St.,https://b.tile.openstreetmap.org/
 Sankt-Zeno-Gasse,St.-Zeno-G.,,,https://a.tile.openstreetmap.org/19/276157/183842.png
 Obere Hauptgasse,Ob. Hauptg.,^Obere[rs]?\M,Ob.,https://a.tile.openstreetmap.org/18/136629/92460.png
 Unterer Aareggweg,Unt. Aareggweg,^Untere[rs]?\M,Unt.,https://c.tile.openstreetmap.org/18/136499/92232.png
-Vorderer Schermenweg,Vord. Schermenweg,Vordere[rs]\M,Vord.,https://b.tile.openstreetmap.org/17/68258/46115.png
-Hintere Engehaldenstrasse,Hint. Engehaldenstr.,Hintere[rs]\M,Hint.,https://c.tile.openstreetmap.org/18/136494/92234.png
+Vorderer Schermenweg,Vord. Schermenweg,^Vordere[rs]\M,Vord.,https://b.tile.openstreetmap.org/17/68258/46115.png
+Hintere Engehaldenstrasse,Hint. Engehaldenstr.,^Hintere[rs]\M,Hint.,https://c.tile.openstreetmap.org/18/136494/92234.png
