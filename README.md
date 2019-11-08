@@ -28,6 +28,7 @@ SELECT abbrev_all('Gutenbergstrasse')
 Gutenbergstr. to be used later.
 
 ## ToDo
+1. [ ] Build a Vagrant development box.
 1. [ ] Export .csv definition to pgSQL (PostGre Extension).
 1. [ ] Export .csv definition to JSON.
 1. [ ] Export .csv definition to XML.
