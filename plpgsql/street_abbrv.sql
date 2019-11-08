@@ -112,9 +112,11 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_de(longname text) RETURNS TEXT
    abbrev=regexp_replace(abbrev,'Straße\M','Str.');
    abbrev=regexp_replace(abbrev,'straße\M','str.');
   END IF;
-  IF (position('asse' in abbrev)>2) THEN
+  IF (position('trasse' in abbrev)>2) THEN
    abbrev=regexp_replace(abbrev,'Strasse\M','Str.');
    abbrev=regexp_replace(abbrev,'strasse\M','str.');
+  END IF;
+  IF (position('asse' in abbrev)>2) THEN
    abbrev=regexp_replace(abbrev,'Gasse\M','G.');
    abbrev=regexp_replace(abbrev,'gasse\M','g.');
   END IF;
