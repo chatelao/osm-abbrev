@@ -1,6 +1,8 @@
 Sample long,Sample short,Rule long,Rule short,Sample URL
-Tillerstrasse,Tillerstr.,strasse\M,str.,https://tile.openstreetmap.org/18/136494/92271.png
 Schwarzwaldstraße,Schwarzwaldstr.,straße\M,str.,https://c.tile.openstreetmap.org/16/34200/22784.png
+Maria-Theresien-Straße,Maria-Theresien-Str.,(?!^)Straße\M,Str.,https://a.tile.openstreetmap.org/18/142988/90889.png
+Tillerstrasse,Tillerstr.,strasse\M,str.,https://tile.openstreetmap.org/18/136494/92271.png
+Anna-Heer-Strasse,Anna-Heer-Str.,(?!^)Strasse\M,Str.,https://a.tile.openstreetmap.org/18/137291/91774.png
 Kronenplatz,Kronenpl.,(?!^)platz\M,pl.,https://tile.openstreetmap.org/19/277196/173636.png
 Gottesauer Platz,Gottesauer Pl.,(?!^)Platz\M,Pl.,https://tile.openstreetmap.org/19/274411/180036.png
 Kreuzgasse,Kreuzg.,(?!^)gasse\M,g.,https://b.tile.openstreetmap.org/19/272997/184516.png
