@@ -52,7 +52,10 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_all(longname text) RETURNS TEX
  BEGIN
   abbrev=osmabbrv_street_abbrev_en(longname);
   abbrev=osmabbrv_street_abbrev_de(abbrev);
+  abbrev=osmabbrv_street_abbrev_es(abbrev);
+  abbrev=osmabbrv_street_abbrev_pt(abbrev);
   abbrev=osmabbrv_street_abbrev_fr(abbrev);
+  abbrev=osmabbrv_street_abbrev_it(abbrev);
   abbrev=osmabbrv_street_abbrev_nl(abbrev);
   abbrev=osmabbrv_street_abbrev_ru(abbrev);
   abbrev=osmabbrv_street_abbrev_uk(abbrev);
@@ -211,6 +214,22 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_nl(longname text) RETURNS TEXT
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
+
+/* 
+   helper function "osmabbrv_street_abbrev_it"
+*/
+CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_it(longname text) RETURNS TEXT AS $$
+ DECLARE
+  abbrev text;
+ BEGIN
+  abbrev=longname;
+  abbrev=regexp_replace(abbrev,'Santa\M','S.');
+  abbrev=regexp_replace(abbrev,'Piazza\M','P.za');
+  abbrev=regexp_replace(abbrev,'Ponte\M','P.te');
+  return abbrev;
+ END;
+$$ LANGUAGE 'plpgsql' IMMUTABLE;
+
 
 /* 
    helper function "osmabbrv_street_abbrev_en"
