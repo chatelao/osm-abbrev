@@ -78,27 +78,52 @@ echo -e "\n---- French abbreviations, data from fr_test.csv ----"
   done
 } < ../defs/fr_tests.csv
 
-echo "select osmabbrv_street_abbrev_all('улица Воздвиженка');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrv_street_abbrev_all('улица Воздвиженка');
-EOF
-)
-printresult "$res" "‪ул. Воздвиженка"
+echo -e "\n---- Italian abbreviations, data from it_test.csv ----"
+{ 
+  read
+  while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
+  do
+    stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
+    echo ${stmt}
+    res=$(psql -X -t -A $DB -c "${stmt}")
+    printresult "$res" "${nameExpected}"
+  done
+} < ../defs/it_tests.csv
 
-#  Russian language
-echo "select osmabbrv_street_abbrev_all('улица Воздвиженка');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrv_street_abbrev_all('улица Воздвиженка');
-EOF
-)
-printresult "$res" "‪ул. Воздвиженка"
+echo -e "\n---- Dutch abbreviations, data from nl_test.csv ----"
+{ 
+  read
+  while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
+  do
+    stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
+    echo ${stmt}
+    res=$(psql -X -t -A $DB -c "${stmt}")
+    printresult "$res" "${nameExpected}"
+  done
+} < ../defs/nl_tests.csv
 
-# Belarusian language (AFAIK)
-echo "select osmabbrv_street_abbrev_all('вулиця Молока');"
-res=$(psql -X -t -A $DB <<EOF
-select osmabbrv_street_abbrev_all('вулиця Молока');
-EOF
-)
-printresult "$res" "‪вул. Молока"
+echo -e "\n---- Russian abbreviations, data from ru_test.csv ----"
+{ 
+  read
+  while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
+  do
+    stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
+    echo ${stmt}
+    res=$(psql -X -t -A $DB -c "${stmt}")
+    printresult "$res" "${nameExpected}"
+  done
+} < ../defs/ru_tests.csv
+
+echo -e "\n---- Belarus abbreviations, data from uk_test.csv ----"
+{ 
+  read
+  while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
+  do
+    stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
+    echo ${stmt}
+    res=$(psql -X -t -A $DB -c "${stmt}")
+    printresult "$res" "${nameExpected}"
+  done
+} < ../defs/uk_tests.csv
 
 exit $exitval
