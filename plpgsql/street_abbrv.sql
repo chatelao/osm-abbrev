@@ -4,8 +4,8 @@ renderer independent name abbreviations
 
 - https://github.com/chatelao/osm-abbrev
 
-(c) 2014-2016 Sven Geggus
-(c) 2019      Olivier Chatelain, olivier.chatelain(ät)gmail.com
+(c) 2019      Olivier Chatelain - olivier.chatelain(ät)gmail.com
+(c) 2014-2016 Sven Geggus       - https://github.com/giggls/mapnik-german-l10n
 
 Licence AGPL http://www.gnu.org/licenses/agpl-3.0.de.html
 
@@ -140,6 +140,12 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_de(longname text) RETURNS TEXT
    abbrev=replace(abbrev,'Sankt ','St. ');
    abbrev=replace(abbrev,'Sankt-','St.-');
   END IF;
+  
+  abbrev = regexp_replace(abbrev,'^Obere[sr]?\M','Ob. ');
+  abbrev = regexp_replace(abbrev,'^Untere[sr]?\M','Unt. ');
+  abbrev = regexp_replace(abbrev,'^Vordere[sr]?\M','Vord. ');
+  abbrev = regexp_replace(abbrev,'^Hintere[sr]?\M','Hint. ');
+  
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
