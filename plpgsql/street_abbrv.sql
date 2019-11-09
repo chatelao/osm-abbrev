@@ -141,10 +141,10 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_de(longname text) RETURNS TEXT
    abbrev=replace(abbrev,'Sankt-','St.-');
   END IF;
   
-  abbrev = regexp_replace(abbrev,'^Obere[sr]?\M','Ob. ');
-  abbrev = regexp_replace(abbrev,'^Untere[sr]?\M','Unt. ');
-  abbrev = regexp_replace(abbrev,'^Vordere[sr]?\M','Vord. ');
-  abbrev = regexp_replace(abbrev,'^Hintere[sr]?\M','Hint. ');
+  abbrev = regexp_replace(abbrev,'^Obere[sr]?\M','Ob.');
+  abbrev = regexp_replace(abbrev,'^Untere[sr]?\M','Unt.');
+  abbrev = regexp_replace(abbrev,'^Vordere[sr]?\M','Vord.');
+  abbrev = regexp_replace(abbrev,'^Hintere[sr]?\M','Hint.');
   
   return abbrev;
  END;
