@@ -47,18 +47,12 @@ $$ LANGUAGE 'plpgsql' IMMUTABLE;
    
 */
 CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_all(longname text) RETURNS TEXT AS $$
- DECLARE
+DECLARE
   abbrev text;
  BEGIN
-  abbrev=osmabbrv_street_abbrev_en(longname);
-  abbrev=osmabbrv_street_abbrev_de(abbrev);
-  abbrev=osmabbrv_street_abbrev_es(abbrev);
-  abbrev=osmabbrv_street_abbrev_pt(abbrev);
-  abbrev=osmabbrv_street_abbrev_fr(abbrev);
-  abbrev=osmabbrv_street_abbrev_it(abbrev);
-  abbrev=osmabbrv_street_abbrev_nl(abbrev);
-  abbrev=osmabbrv_street_abbrev_ru(abbrev);
-  abbrev=osmabbrv_street_abbrev_uk(abbrev);
+  abbrev=longname;
+  abbrev=osmabbrv_street_abbrev_latin(abbrev);
+  abbrev=osmabbrv_street_abbrev_non_latin(abbrev);
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
@@ -214,8 +208,8 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_nl(longname text) RETURNS TEXT
   abbrev=regexp_replace(abbrev,'steenweg\M','stwg.');
   abbrev=regexp_replace(abbrev,'markt\M','mkt.');
   abbrev=regexp_replace(abbrev,'Monseigneur','Mgr.');
-  abbrev=regexp_replace(abbrev,'Van De\M','vd.');
-  abbrev=regexp_replace(abbrev,'Van De[nr]\M','v');
+  abbrev=regexp_replace(abbrev,'Van De[nr]?\M','vd');
+  abbrev=regexp_replace(abbrev,'Van\M','v');
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
