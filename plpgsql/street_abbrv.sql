@@ -211,7 +211,7 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_nl(longname text) RETURNS TEXT
   abbrev=regexp_replace(abbrev,'Monseigneur','Mgr.');
   abbrev=regexp_replace(abbrev,'Van De[nr]?\M','vd');
   abbrev=regexp_replace(abbrev,'Van\M','v');
-  abbrev=regexp_replace(abbrev,'Konig(in)?\M','Kon.');
+  abbrev=regexp_replace(abbrev,'Koning(in)?\M','Kon.');
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
