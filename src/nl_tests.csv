@@ -1,4 +1,9 @@
 Sample long,Sample short,Rule long,Rule short,Sample URL
-Zandstraat,Zandstr.,straat,str.,
-Sint-Paulusstraat,St.-Paulusstr.,Sint,St.,
+Zandstraat,Zandstr.,straat\M,str.,
+Sint-Paulusstraat,St.-Paulusstr.,Sint\M,St.,
 Sint Annendwarsstraat,St. Annendwarsstr.,,,
+Van De Sweepstraat,vd Sweepstr.,Van De\M,vd.,
+Jan Van Gentstraat,Jan v Gentstr.,Van De[nr]\M,v,
+Grotesteenweg,Grotestwg.,steenweg\M,stwg.,
+Vrijdagmarkt,Vrijdagmkt.,markt\M,mkt.,
+Monseigneur Nolensplein,Mgr. Nolensplein,Monseigneur,Mgr.,
