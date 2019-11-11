@@ -43,8 +43,8 @@ $(INSTALLDIRS):
 deb:
 	dpkg-buildpackage -b -us -uc
 
-clean: $(CLEANDIRS)
-	rm -rf $$(grep -v country_osm_grid.sql .gitignore)
+# clean: $(CLEANDIRS)
+# 	rm -rf $$(grep -v country_osm_grid.sql .gitignore)
 	
 # remove everything including the files from the interwebs
 mrproper: clean

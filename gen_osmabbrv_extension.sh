@@ -56,16 +56,16 @@ for f in $SCRIPTS; do
   echo "-- pl/pgSQL code from file $bn -----------------------------------------------------------------" >>osmabbrv--$2.sql
   cat $f >>osmabbrv--$2.sql
 done
-# echo "-- country_osm_grid.sql -----------------------------------------------------------------" >>osmabbrv--$2.sql
-# sed '/^COPY.*$/,/^\\\.$/d;//d' country_osm_grid.sql |grep -v -e '^--' |grep -v 'CREATE INDEX' | cat -s >>osmabbrv--$2.sql
-# echo -e "COPY country_osm_grid (country_code, area, geometry) FROM '$1/osmabbrv_country_osm_grid.data';\n"  >>osmabbrv--$2.sql
-# grep 'CREATE INDEX' country_osm_grid.sql  >>osmabbrv--$2.sql
-# echo "GRANT SELECT on country_osm_grid to public;" >>osmabbrv--$2.sql
+# NO-COUNTRY - echo "-- country_osm_grid.sql -----------------------------------------------------------------" >>osmabbrv--$2.sql
+# NO-COUNTRY - sed '/^COPY.*$/,/^\\\.$/d;//d' country_osm_grid.sql |grep -v -e '^--' |grep -v 'CREATE INDEX' | cat -s >>osmabbrv--$2.sql
+# NO-COUNTRY - echo -e "COPY country_osm_grid (country_code, area, geometry) FROM '$1/osmabbrv_country_osm_grid.data';\n"  >>osmabbrv--$2.sql
+# NO-COUNTRY - grep 'CREATE INDEX' country_osm_grid.sql  >>osmabbrv--$2.sql
+# NO-COUNTRY - echo "GRANT SELECT on country_osm_grid to public;" >>osmabbrv--$2.sql
 
-# echo -e "\n-- country_languages table from http://wiki.openstreetmap.org/wiki/Nominatim/Country_Codes -----------------------------" >>osmabbrv--$2.sql
-# echo "CREATE TABLE country_languages(iso text, langs text[]);" >>osmabbrv--$2.sql
-# echo "COPY country_languages (iso, langs) FROM '$1/country_languages.data';"  >>osmabbrv--$2.sql
-# echo -e "GRANT SELECT on country_languages to public;\n" >>osmabbrv--$2.sql
+# NO-COUNTRY - echo -e "\n-- country_languages table from http://wiki.openstreetmap.org/wiki/Nominatim/Country_Codes -----------------------------" >>osmabbrv--$2.sql
+# NO-COUNTRY - echo "CREATE TABLE country_languages(iso text, langs text[]);" >>osmabbrv--$2.sql
+# NO-COUNTRY - echo "COPY country_languages (iso, langs) FROM '$1/country_languages.data';"  >>osmabbrv--$2.sql
+# NO-COUNTRY - echo -e "GRANT SELECT on country_languages to public;\n" >>osmabbrv--$2.sql
 
 echo "
 -- function osmabbrv_version  -----------------------------------------------------------------
@@ -76,4 +76,4 @@ CREATE or REPLACE FUNCTION osmabbrv_version() RETURNS TEXT AS \$\$
 \$\$ LANGUAGE 'plpgsql' IMMUTABLE;
 " >>osmabbrv--$2.sql
 
-sed '/^COPY.*$/,/^\\\.$/!d;//d'  country_osm_grid.sql >osmabbrv_country_osm_grid.data
+# NO-COUNTRY - sed '/^COPY.*$/,/^\\\.$/!d;//d'  country_osm_grid.sql >osmabbrv_country_osm_grid.data
