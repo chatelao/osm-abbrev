@@ -23,7 +23,12 @@ them:
 
 ```sh
 make deb
-```
+
+$ npm install -g mustache
+ 
+$ mustache dataView.json myTemplate.mustache > output.html
+```     
+
 
 To make this work you will need to install the required libraries:
 
