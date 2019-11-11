@@ -15,7 +15,7 @@ before_install:
   - npm install -g csvtojson
   - npm install -g mustache
   - for i in ${TRAVIS_BUILD_DIR}/src/*_tests.csv; do csvtojson $i > $i.json; done 
-  - jq "." ${TRAVIS_BUILD_DIR}/src/*_tests.csv.json
+  - jq "[file_name] = input" ${TRAVIS_BUILD_DIR}/src/*_tests.csv.json
   - mustache ${TRAVIS_BUILD_DIR}/src/test.json ${TRAVIS_BUILD_DIR}/src/street_abbrv.mustache.sql
 
 install:
