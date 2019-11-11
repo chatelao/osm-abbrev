@@ -2,8 +2,6 @@
 
 * GNU/Linux OS
 * Postgresql 8.x - 11.x, PostGIS 2.x
-* Kanji Kana Simple Inverter library (http://kakasi.namazu.org/)
-* ICU - International Components for Unicode library (http://site.icu-project.org/)
 
 This code is developed on Debian 9.x and should also work on Debian
 derivatives like Ubuntu and other GNU/Linux distributions.
@@ -39,60 +37,8 @@ required libraries listed in `debian/control` have been installed.
 I would be happy if somebody would contribute a spec-file for rpm based
 distributions.
 
-The build process will need to download country_osm_grid.sql from
-http://www.nominatim.org/data/country_grid.sql.gz
-If your computer is offline for some reason. Just download this file and
-put it inside your build directory.
-
-Thai transcript is a seperate extension because it is based on python
-(https://pypi.org/project/tltk/) and installing
-**postgresql-plpython3** is probably not an option for everybody.
-
-If osmabbrv_thai_transcript is not installed transcription for thai language
-will fall back to libicu which will not produce very good results.
-
-To make osmabbrv_thai_transcript work tltk must be installed on the system
-level using the pip (pip3) package manager:
-
-```sh
-sudo pip3 install tltk
-```
-
 ### 2. Load the required extensions into your database
+
 ```sql
 CREATE EXTENSION osmabbrv CASCADE;
-CREATE EXTENSION osmabbrv_thai_transcript CASCADE;
 ```
-
-
-Afterwards you should be able to do the following:
-
-```sql
-yourdb=# select osmabbrv_translit('北京');
- osmabbrv_translit
----------------
- běi jīng
- (1 row)
-```
-
-```sql
-yourdb=# select osmabbrv_kanji_transcript('漢字');
- osmabbrv_kanji_transcript
----------------------
- kanji
- (1 row)
-```
-
-```sql
-yourdb=# select osmabbrv_thai_transcript('ถนนข้าวสาร');
- osmabbrv_thai_transcript
----------------------
- thnn khaotan
- (1 row)
-```
-
-To check if everything went well run the test script provided in the
-tests/runtests_in_virtualenv.sh directory. As this test uses pg_virtualenv
-it is not required to create a database to run the test.
-
-
