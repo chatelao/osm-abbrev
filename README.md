@@ -37,4 +37,4 @@ Gutenbergstr. to be used later.
 
 ## Special thanks
 
-The technical foundation and inspiration is the [mapnik-german-l10n](https://github.com/giggls/mapnik-german-l10n) project, which provides a fabulous support to transliterate maps.
+The technical foundation and inspiration for this project is the [mapnik-german-l10n](https://github.com/giggls/mapnik-german-l10n) , which provides a fabulous support to transliterate maps. A look over there is recommended for all omni-lingual fans.
