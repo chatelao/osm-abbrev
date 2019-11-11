@@ -1,0 +1,41 @@
+{
+    "latin": [
+        {
+            "lang": "de",
+            "rules": [
+                {
+                    "search": "Strasse",
+                    "replace": "Str."
+                },
+                {
+                    "search": "platz",
+                    "replace": "pl."
+                }
+            ]
+        },
+        {
+            "lang": "de",
+            "rules": [
+                {
+                    "search": "Avenue",
+                    "replace": "Av."
+                },
+                {
+                    "search": "Chemin",
+                    "replace": "Ch."
+                }
+            ]
+        }
+    ],
+    "non-latin": [
+        {
+            "lang": "ru",
+            "rules": [
+                {
+                    "search": "улица",
+                    "replace": "ул."
+                }
+            ]
+        }
+    ]
+}
