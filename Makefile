@@ -9,7 +9,7 @@ EXTDIR=/usr/share/postgresql/10
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 
-all: $(patsubst %.md,%.html,$(wildcard *.md)) INSTALL README Makefile $(SUBDIRS) osmabbrv.control country_languages.data  osmabbrv_country_osm_grid.data
+all: $(patsubst %.md,%.html,$(wildcard *.md)) INSTALL README Makefile $(SUBDIRS) osmabbrv.control country_languages.data
 
 INSTALL: INSTALL.md
 	pandoc --from markdown_github --to plain --standalone $< --output $@
@@ -43,8 +43,8 @@ $(INSTALLDIRS):
 deb:
 	dpkg-buildpackage -b -us -uc
 
-# clean: $(CLEANDIRS)
-# 	rm -rf $$(grep -v country_osm_grid.sql .gitignore)
+clean: $(CLEANDIRS)
+	rm -rf $$(grep .gitignore)
 	
 # remove everything including the files from the interwebs
 mrproper: clean
