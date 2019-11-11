@@ -1,4 +1,4 @@
-Sample long,Sample short,Rule long,Rule short,Sample URL
+test_input,test_expected,regexp_search,regexp_replace,test_url
 Zandstraat,Zandstr.,straat\M,str.,
 Sint-Paulusstraat,St.-Paulusstr.,Sint\M,St.,
 Sint Annendwarsstraat,St. Annendwarsstr.,,,

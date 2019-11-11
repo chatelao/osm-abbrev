@@ -1,4 +1,4 @@
-Sample long,Sample short,Rule long,Rule short,Sample URL
+test_input,test_expected,regexp_search,regexp_replace,test_url
 Avenue de la Gare,Av. de la Gare,Avenue,Av.,
 Boulevard de Pérolles,Bd de Pérolles,Boulevard,Bd,
 Chemin des bains,Ch. des bains,Chemin,Ch.,

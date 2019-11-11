@@ -1,4 +1,4 @@
-Sample long,Sample short,Rule long,Rule short,Sample URL
+test_input,test_expected,regexp_search,regexp_replace,test_url
 Largo di Santa Susanna,Largo di S. Susanna,Santa\M,S.,
 Via Santamaura,Via Santamaura,,,
 Piazza di Santa Cecilia,P.za di S. Cecilia,^Piazza\M,P.za,https://b.tile.openstreetmap.org/18/139267/95553.png

@@ -13,8 +13,8 @@ addons:
 before_install:
   - npm install -g csvtojson
   - npm install -g mustache
-  - csvtojson  ${TRAVIS_BUILD_DIR}/src/de_tests.csv
-  - mustache  ${TRAVIS_BUILD_DIR}/src/test.json ${TRAVIS_BUILD_DIR}/src/street_abbrv.mustache.sql
+  - csvtojson ${TRAVIS_BUILD_DIR}/src/de_tests.csv
+  - mustache ${TRAVIS_BUILD_DIR}/src/test.json ${TRAVIS_BUILD_DIR}/src/street_abbrv.mustache.sql
 
 install:
   - sudo mk-build-deps -i debian/control

@@ -4,12 +4,12 @@
             "lang": "de",
             "rules": [
                 {
-                    "search": "Strasse",
-                    "replace": "Str."
+                    "regexp_search": "Strasse",
+                    "regexp_replace": "Str."
                 },
                 {
-                    "search": "platz",
-                    "replace": "pl."
+                    "regexp_search": "platz",
+                    "regexp_replace": "pl."
                 }
             ]
         },
@@ -17,12 +17,12 @@
             "lang": "fr",
             "rules": [
                 {
-                    "search": "Avenue",
-                    "replace": "Av."
+                    "regexp_search": "Avenue",
+                    "regexp_replace": "Av."
                 },
                 {
-                    "search": "Chemin",
-                    "replace": "Ch."
+                    "regexp_search": "Chemin",
+                    "regexp_replace": "Ch."
                 }
             ]
         }
@@ -32,8 +32,8 @@
             "lang": "ru",
             "rules": [
                 {
-                    "search": "улица",
-                    "replace": "ул."
+                    "regexp_search": "улица",
+                    "regexp_replace": "ул."
                 }
             ]
         }

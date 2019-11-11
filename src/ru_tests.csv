@@ -1,4 +1,4 @@
-Sample long,Sample short,Rule long,Rule short,Sample URL
+test_input,test_expected,regexp_search,regexp_replace,test_url
 ,,переулок,пер.,
 ,,тупик,туп.,
 улица Воздвиженка,ул. Воздвиженка,улица,ул.,
