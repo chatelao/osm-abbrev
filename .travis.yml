@@ -10,6 +10,10 @@ addons:
     - pandoc
     - postgresql-10-postgis-2.4
 
+before_install:
+  - npm install -g mustache
+  - mustache src/test.json src/street_abbrv.mustache.sql
+
 install:
   - sudo mk-build-deps -i debian/control
   
