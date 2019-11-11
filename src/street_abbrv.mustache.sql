@@ -62,9 +62,13 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_latin(longname text) RETURNS T
  DECLARE
   abbrev text;
  BEGIN
-{{#latin}}
-{{/latin}}
   abbrev=longname;
+
+{{#latin}}
+  abbrev=osmabbrv_street_abbrev_{{lang}}(abbrev);
+{{/latin}}
+
+
   abbrev=osmabbrv_street_abbrev_en(abbrev);
   abbrev=osmabbrv_street_abbrev_de(abbrev);
   abbrev=osmabbrv_street_abbrev_nl(abbrev);
@@ -76,13 +80,16 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_latin(longname text) RETURNS T
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
 
-
 CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_non_latin(longname text) RETURNS TEXT AS $$
  DECLARE
   abbrev text;
  BEGIN
+  abbrev=longname;
+
 {{#non-latin}}
+  abbrev=osmabbrv_street_abbrev_{{lang}}(abbrev);
 {{/non-latin}}
+
   abbrev=longname;
   abbrev=osmabbrv_street_abbrev_ru(abbrev);
   abbrev=osmabbrv_street_abbrev_uk(abbrev);
@@ -98,7 +105,7 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_{{lang}}(longname text) RETURN
  BEGIN
   abbrev=longname;
 {{#rules}}
-  abbrev=regexp_replace(longname,{{regexp_search}},{{regexp_replace}};
+  abbrev=regexp_replace(longname,'{{search}}','{{replace}}');
 {{/rules}}
   return abbrev;
  END;
@@ -112,7 +119,7 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_{{lang}}(longname text) RETURN
  BEGIN
   abbrev=longname;
 {{#rules}}
-  abbrev=regexp_replace(longname,{{regexp_search}},{{regexp_replace}};
+  abbrev=regexp_replace(longname,'{{search}}','{{replace}}');
 {{/rules}}
   return abbrev;
  END;
