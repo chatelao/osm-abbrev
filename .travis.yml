@@ -9,11 +9,15 @@ addons:
     - equivs
     - pandoc
     - postgresql-10-postgis-2.4
+    - jq
 
 before_install:
   - npm install -g csvtojson
   - npm install -g mustache
-  - csvtojson ${TRAVIS_BUILD_DIR}/src/de_tests.csv
+  - csvtojson ${TRAVIS_BUILD_DIR}/src/de_tests.csv > ${TRAVIS_BUILD_DIR}/src/de_tests.json
+  - csvtojson ${TRAVIS_BUILD_DIR}/src/fr_tests.csv > ${TRAVIS_BUILD_DIR}/src/fr_tests.json
+  - jq "." ${TRAVIS_BUILD_DIR}/src/de_tests.json ${TRAVIS_BUILD_DIR}/src/fr_tests.json
+  - csvtojson ${TRAVIS_BUILD_DIR}/src/*_tests.csv
   - mustache ${TRAVIS_BUILD_DIR}/src/test.json ${TRAVIS_BUILD_DIR}/src/street_abbrv.mustache.sql
 
 install:
