@@ -1,4 +1,4 @@
-Beispiel lang,Beispiel gekürzt,Regel lang,Regel gekürzt,Beispiel URL
+Sample long,Sample short,Rule long,Rule short,Sample URL
 92 Avenue NW,92 Ave. NW,(?!^)Avenue\M,Ave.,
 William S Canning Boulevard,William S Canning Blvd.,(?!^)Boulevard\M,Blvd.,
 Mulholland Drive,Mulholland Dr.,Drive\M,Dr.,https://b.tile.openstreetmap.de/19/89747/209219.png
