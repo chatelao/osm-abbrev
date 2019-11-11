@@ -16,20 +16,20 @@ for cmd in curl sed basename; do
   fi
 done
 
-# download country_osm_grid.sql from nominatim if not available
-if ! [ -f "country_osm_grid.sql" ]; then
-  rm -f country_osm_grid.sql
-  echo -n "Trying to download country_grid.sql.gz from nominatim.org... "
-  curl -s http://www.nominatim.org/data/country_grid.sql.gz |gzip -d >country_osm_grid.sql
+# # download country_osm_grid.sql from nominatim if not available
+# if ! [ -f "country_osm_grid.sql" ]; then
+#   rm -f country_osm_grid.sql
+#   echo -n "Trying to download country_grid.sql.gz from nominatim.org... "
+#   curl -s http://www.nominatim.org/data/country_grid.sql.gz |gzip -d >country_osm_grid.sql
 
-  if ! [ -s country_osm_grid.sql ]; then
-    rm -f country_osm_grid.sql
-    echo "failed."
-    exit 1
-  else
-    echo "done."
-  fi
-fi
+#   if ! [ -s country_osm_grid.sql ]; then
+#     rm -f country_osm_grid.sql
+#     echo "failed."
+#     exit 1
+#   else
+#     echo "done."
+#   fi
+# fi
 
 SCRIPTS=plpgsql/*
 
@@ -56,16 +56,16 @@ for f in $SCRIPTS; do
   echo "-- pl/pgSQL code from file $bn -----------------------------------------------------------------" >>osmabbrv--$2.sql
   cat $f >>osmabbrv--$2.sql
 done
-echo "-- country_osm_grid.sql -----------------------------------------------------------------" >>osmabbrv--$2.sql
-sed '/^COPY.*$/,/^\\\.$/d;//d' country_osm_grid.sql |grep -v -e '^--' |grep -v 'CREATE INDEX' | cat -s >>osmabbrv--$2.sql
-echo -e "COPY country_osm_grid (country_code, area, geometry) FROM '$1/osmabbrv_country_osm_grid.data';\n"  >>osmabbrv--$2.sql
-grep 'CREATE INDEX' country_osm_grid.sql  >>osmabbrv--$2.sql
-echo "GRANT SELECT on country_osm_grid to public;" >>osmabbrv--$2.sql
+# echo "-- country_osm_grid.sql -----------------------------------------------------------------" >>osmabbrv--$2.sql
+# sed '/^COPY.*$/,/^\\\.$/d;//d' country_osm_grid.sql |grep -v -e '^--' |grep -v 'CREATE INDEX' | cat -s >>osmabbrv--$2.sql
+# echo -e "COPY country_osm_grid (country_code, area, geometry) FROM '$1/osmabbrv_country_osm_grid.data';\n"  >>osmabbrv--$2.sql
+# grep 'CREATE INDEX' country_osm_grid.sql  >>osmabbrv--$2.sql
+# echo "GRANT SELECT on country_osm_grid to public;" >>osmabbrv--$2.sql
 
-echo -e "\n-- country_languages table from http://wiki.openstreetmap.org/wiki/Nominatim/Country_Codes -----------------------------" >>osmabbrv--$2.sql
-echo "CREATE TABLE country_languages(iso text, langs text[]);" >>osmabbrv--$2.sql
-echo "COPY country_languages (iso, langs) FROM '$1/country_languages.data';"  >>osmabbrv--$2.sql
-echo -e "GRANT SELECT on country_languages to public;\n" >>osmabbrv--$2.sql
+# echo -e "\n-- country_languages table from http://wiki.openstreetmap.org/wiki/Nominatim/Country_Codes -----------------------------" >>osmabbrv--$2.sql
+# echo "CREATE TABLE country_languages(iso text, langs text[]);" >>osmabbrv--$2.sql
+# echo "COPY country_languages (iso, langs) FROM '$1/country_languages.data';"  >>osmabbrv--$2.sql
+# echo -e "GRANT SELECT on country_languages to public;\n" >>osmabbrv--$2.sql
 
 echo "
 -- function osmabbrv_version  -----------------------------------------------------------------

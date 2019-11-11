@@ -51,7 +51,7 @@ echo -e "\n---- German abbreviations, data from de_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../defs/de_tests.csv
+} < ../src/de_tests.csv
 
 IFS=,
 echo -e "\n---- English abbreviations, data from en_test.csv ----"
@@ -64,7 +64,7 @@ echo -e "\n---- English abbreviations, data from en_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../defs/en_tests.csv
+} < ../src/en_tests.csv
 
 echo -e "\n---- French abbreviations, data from fr_test.csv ----"
 { 
@@ -76,7 +76,7 @@ echo -e "\n---- French abbreviations, data from fr_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../defs/fr_tests.csv
+} < ../src/fr_tests.csv
 
 echo -e "\n---- Italian abbreviations, data from it_test.csv ----"
 { 
@@ -88,7 +88,7 @@ echo -e "\n---- Italian abbreviations, data from it_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../defs/it_tests.csv
+} < ../src/it_tests.csv
 
 echo -e "\n---- Dutch abbreviations, data from nl_test.csv ----"
 { 
@@ -100,7 +100,7 @@ echo -e "\n---- Dutch abbreviations, data from nl_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../defs/nl_tests.csv
+} < ../src/nl_tests.csv
 
 echo -e "\n---- Russian abbreviations, data from ru_test.csv ----"
 { 
@@ -112,7 +112,7 @@ echo -e "\n---- Russian abbreviations, data from ru_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../defs/ru_tests.csv
+} < ../src/ru_tests.csv
 
 echo -e "\n---- Belarus abbreviations, data from uk_test.csv ----"
 { 
@@ -124,6 +124,6 @@ echo -e "\n---- Belarus abbreviations, data from uk_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../defs/uk_tests.csv
+} < ../src/uk_tests.csv
 
 exit $exitval
