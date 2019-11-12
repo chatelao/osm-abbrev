@@ -3,29 +3,213 @@
         {
             "lang": "de",
             "rules": [
-                {
-                    "regexp_search": "Strasse",
-                    "regexp_replace": "Str."
-                },
-                {
-                    "regexp_search": "platz",
-                    "regexp_replace": "pl."
-                }
-            ]
+                {"test_input":"Schwarzwaldstraße","test_expected":"Schwarzwaldstr.","regexp_search":"straße\\M","regexp_replace":"str.","test_url":"https://c.tile.openstreetmap.org/16/34200/22784.png"}
+                ,
+                {"test_input":"Maria-Theresien-Straße","test_expected":"Maria-Theresien-Str.","regexp_search":"(?!^)Straße\\M","regexp_replace":"Str.","test_url":"https://a.tile.openstreetmap.org/18/142988/90889.png"}
+                ,
+                {"test_input":"Tillerstrasse","test_expected":"Tillerstr.","regexp_search":"strasse\\M","regexp_replace":"str.","test_url":"https://tile.openstreetmap.org/18/136494/92271.png"}
+                ,
+                {"test_input":"Anna-Heer-Strasse","test_expected":"Anna-Heer-Str.","regexp_search":"(?!^)Strasse\\M","regexp_replace":"Str.","test_url":"https://a.tile.openstreetmap.org/18/137291/91774.png"}
+                ,
+                {"test_input":"Kronenplatz","test_expected":"Kronenpl.","regexp_search":"(?!^)platz\\M","regexp_replace":"pl.","test_url":"https://tile.openstreetmap.org/19/277196/173636.png"}
+                ,
+                {"test_input":"Gottesauer Platz","test_expected":"Gottesauer Pl.","regexp_search":"(?!^)Platz\\M","regexp_replace":"Pl.","test_url":"https://tile.openstreetmap.org/19/274411/180036.png"}
+                ,
+                {"test_input":"Kreuzgasse","test_expected":"Kreuzg.","regexp_search":"(?!^)gasse\\M","regexp_replace":"g.","test_url":"https://b.tile.openstreetmap.org/19/272997/184516.png"}
+                ,
+                {"test_input":"Hohle Gasse","test_expected":"Hohle G.","regexp_search":"(?!^)Gasse\\M","regexp_replace":"G.","test_url":"https://a.tile.openstreetmap.org/17/69023/45976.png"}
+                ,
+                {"test_input":"Gassenäckerstrasse","test_expected":"Gassenäckerstr.","regexp_search":"","regexp_replace":"","test_url":"https://a.tile.openstreetmap.org/17/68924/45811.png"}
+                ,
+                {"test_input":"Doktor-Rohmer-Weg","test_expected":"Dr.-Rohmer-Weg","regexp_search":"Doktor","regexp_replace":"Dr.","test_url":"https://a.tile.openstreetmap.org/17/68608/44399.png"}
+                ,
+                {"test_input":"Professor-Doktor-No-Straße","test_expected":"Prof.-Dr.-No-Str.","regexp_search":"","regexp_replace":"","test_url":""}
+                ,
+                {"test_input":"Professor Ludwig Strauchgasse","test_expected":"Prof. Ludwig Strauchg.","regexp_search":"Professor","regexp_replace":"Prof.","test_url":"https://c.tile.openstreetmap.org/17/71474/45390.png"}
+                ,
+                {"test_input":"Bürgermeister-Wagner-Strasse","test_expected":"Bgm.-Wagner-Str.","regexp_search":"Bürgermeister","regexp_replace":"Bgm.","test_url":"https://c.tile.openstreetmap.org/18/139109/87789.png"}
+                ,
+                {"test_input":"Sankt Gallerstrasse","test_expected":"St. Gallerstr.","regexp_search":"Sankt\\M","regexp_replace":"St.","test_url":"https://b.tile.openstreetmap.org/18/137578/91647.png"}
+                ,
+                {"test_input":"Sankt-Zeno-Gasse","test_expected":"St.-Zeno-G.","regexp_search":"","regexp_replace":"","test_url":"https://a.tile.openstreetmap.org/19/276157/183842.png"}
+                ,
+                {"test_input":"Obere Hauptgasse","test_expected":"Ob. Hauptg.","regexp_search":"^Obere[rs]?\\M","regexp_replace":"Ob.","test_url":"https://a.tile.openstreetmap.org/18/136629/92460.png"}
+                ,
+                {"test_input":"Unterer Aareggweg","test_expected":"Unt. Aareggweg","regexp_search":"^Untere[rs]?\\M","regexp_replace":"Unt.","test_url":"https://c.tile.openstreetmap.org/18/136499/92232.png"}
+                ,
+                {"test_input":"Vorderer Schermenweg","test_expected":"Vord. Schermenweg","regexp_search":"^Vordere[rs]\\M","regexp_replace":"Vord.","test_url":"https://b.tile.openstreetmap.org/17/68258/46115.png"}
+                ,
+                {"test_input":"Hintere Engehaldenstrasse","test_expected":"Hint. Engehaldenstr.","regexp_search":"^Hintere[rs]\\M","regexp_replace":"Hint.","test_url":"https://c.tile.openstreetmap.org/18/136494/92234.png"}
+                
+                ]                
         },
         {
             "lang": "fr",
             "rules": [
-                {
-                    "regexp_search": "Avenue",
-                    "regexp_replace": "Av."
-                },
-                {
-                    "regexp_search": "Chemin",
-                    "regexp_replace": "Ch."
-                }
-            ]
-        }
+                {"test_input":"Avenue de la Gare","test_expected":"Av. de la Gare","regexp_search":"Avenue","regexp_replace":"Av.","test_url":""}
+                ,
+                {"test_input":"Boulevard de Pérolles","test_expected":"Bd de Pérolles","regexp_search":"Boulevard","regexp_replace":"Bd","test_url":""}
+                ,
+                {"test_input":"Chemin des bains","test_expected":"Ch. des bains","regexp_search":"Chemin","regexp_replace":"Ch.","test_url":""}
+                ,
+                {"test_input":"Esplanade de lancienne gare","test_expected":"Espl. de lancienne gare","regexp_search":"Esplanade","regexp_replace":"Espl.","test_url":""}
+                ,
+                {"test_input":"Impasse de la forêt","test_expected":"Imp. de la forêt","regexp_search":"Impasse","regexp_replace":"Imp.","test_url":""}
+                ,
+                {"test_input":"Passage de Cardinal","test_expected":"Pass. de Cardinal","regexp_search":"Passage","regexp_replace":"Pass.","test_url":""}
+                ,
+                {"test_input":"Promenade du Barrage","test_expected":"Prom. du Barrage","regexp_search":"Promenade","regexp_replace":"Prom.","test_url":""}
+                ,
+                {"test_input":"Ruelle des Tonneliers","test_expected":"Rle des Tonneliers","regexp_search":"Ruelle","regexp_replace":"Rle","test_url":""}
+                ,
+                {"test_input":"Route de Marly","test_expected":"Rte de Marly","regexp_search":"Route","regexp_replace":"Rte","test_url":""}
+                ,
+                {"test_input":"Sentier du Stand","test_expected":"Sent. du Stand","regexp_search":"Sentier","regexp_replace":"Sent.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"lémentaire","regexp_replace":"lem.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"econdaire","regexp_replace":"econd.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"rimaire","regexp_replace":"rim.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"aternelle","regexp_replace":"at.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"ommerciale","regexp_replace":"omm.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Direction","regexp_replace":"Dir.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Chapelle","regexp_replace":"Chap.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Cathédrale","regexp_replace":"Cath.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Notre-Dame","regexp_replace":"N.D.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Esplanade","regexp_replace":"Espl.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Faubourg","regexp_replace":"Fbg.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Place","regexp_replace":"Pl.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Centre Commercial","regexp_replace":"CCial.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Immeuble","regexp_replace":"Imm.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Lotissement","regexp_replace":"Lot.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Résidence","regexp_replace":"Rés.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Zone Industrielle","regexp_replace":"ZI.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Adjudant","regexp_replace":"Adj.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Agricole","regexp_replace":"Agric.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Arrondissement","regexp_replace":"Arrond.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Aspirant","regexp_replace":"Asp.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Colonel","regexp_replace":"Col.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Commandant","regexp_replace":"Cdt.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Commercial","regexp_replace":"Cial.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Coopérative","regexp_replace":"Coop.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Division","regexp_replace":"Div.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Docteur","regexp_replace":"Dr.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Général","regexp_replace":"Gén.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Institut","regexp_replace":"Inst.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Faculté","regexp_replace":"Fac.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Laboratoire","regexp_replace":"Labo.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Lieutenant","regexp_replace":"Lt.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Maréchal","regexp_replace":"Mal.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Ministère","regexp_replace":"Min.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Monseigneur","regexp_replace":"Mgr.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Médiathèque","regexp_replace":"Médiat.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Bibliothèque","regexp_replace":"Bibl.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Tribunal","regexp_replace":"Trib.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Observatoire","regexp_replace":"Obs.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Périphérique","regexp_replace":"Périph.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Préfecture","regexp_replace":"Préf.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Président","regexp_replace":"Pdt.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Régiment","regexp_replace":"Rgt.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Saint-","regexp_replace":"Sᵗ-","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Sainte-","regexp_replace":"Sᵗᵉ-","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Sergent","regexp_replace":"Sgt.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Université","regexp_replace":"Univ.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Communauté d.[Aa]gglomération","regexp_replace":"Comm. d''agglo.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Communauté [Uu]rbaine","regexp_replace":"Comm. urb.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Communauté de [Cc]ommunes","regexp_replace":"Comm. comm.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Syndicat d.[Aa]gglomération","regexp_replace":"Synd. d''agglo.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"^Institut","regexp_replace":"Inst.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Zone d.[Aa]ctivité.? [Éeée]conommique.?","regexp_replace":"Z.A.E.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Zone d.[Aa]ctivité.?","regexp_replace":"Z.A.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Zone [Aa]rtisanale","regexp_replace":"Zone Art.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"Zone [Ii]ndustrielle","regexp_replace":"Z.I.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Pp]ubli(c|que)","regexp_replace":"Publ.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Pp]rofessionnel(|le)","regexp_replace":"Prof.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Tt]echnologique","regexp_replace":"Techno.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Pp]olyvalent","regexp_replace":"Polyv.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[EÉeé]tablissement(|s)","regexp_replace":"Éts.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Mm]unicipal(|e)","regexp_replace":"Munic.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Dd]épartemental(|e)","regexp_replace":"Départ.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Ii]ntercommunal(|le)","regexp_replace":"Interco.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Rr]égional(|e)","regexp_replace":"Région.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Ii]nterdépartemental(|e)","regexp_replace":"Interdép.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Hh]ospitali(er|ère)","regexp_replace":"Hospit.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[EÉeé]lectrique","regexp_replace":"Élect.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Ss]upérieur(|e)","regexp_replace":"Sup.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"^[Bb][aâ]timent","regexp_replace":"Bât.","test_url":""}
+                ,
+                {"test_input":"","test_expected":"","regexp_search":"[Aa]éronautique","regexp_replace":"Aéron.","test_url":""}
+                
+                ]
+            }
     ],
     "non-latin": [
         {
