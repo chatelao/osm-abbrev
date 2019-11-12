@@ -1,6 +1,6 @@
 test_input,test_expected,regexp_search,regexp_replace,test_url
-Calle de Jesús y María,C. de Jesús y María,Calle\M,C.,
-Travesía de la Encomienda,Trva. de la Encomienda,Travesía\M,Trva.,
-Plaza de España,Pl. de España,Plaza\M,Pl.,
-Paseo Piñonero,P.º Piñonero,Paseo\M,P.º,https://b.tile.openstreetmap.org/17/64177/49419.png
-Paseo Marítimo de la Patacona,P.º mar. de la Patacona,Paseo Marítimo\M,P.º Mar.,https://a.tile.openstreetmap.org/17/65417/49861.png
+Calle de Jesús y María,C. de Jesús y María,^Calle\M,C.,
+Travesía de la Encomienda,Trva. de la Encomienda,^Travesía\M,Trva.,
+Plaza de España,Pl. de España,^Plaza\M,Pl.,
+Paseo Piñonero,P.º Piñonero,^Paseo\M,P.º,https://b.tile.openstreetmap.org/17/64177/49419.png
+Paseo Marítimo de la Patacona,^P.º mar. de la Patacona,Paseo Marítimo\M,P.º Mar.,https://a.tile.openstreetmap.org/17/65417/49861.png
