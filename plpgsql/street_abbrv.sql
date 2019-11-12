@@ -178,11 +178,13 @@ $$ LANGUAGE 'plpgsql' IMMUTABLE;
    currently just a stub :(
 */
 CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_es(longname text) RETURNS TEXT AS $$
+ DECLARE
+  abbrev text;
  BEGIN
   return longname;
-  abbrev=regexp_replace(abbrev,'^Sentier\M','Sent.');
-  abbrev=regexp_replace(abbrev,'^Sentier\M','Sent.');
-  abbrev=regexp_replace(abbrev,'^Sentier\M','Sent.');
+  abbrev=regexp_replace(longname,'^Calle\M','C.');
+  abbrev=regexp_replace(abbrev,'^Travesía\M','Trva.');
+  abbrev=regexp_replace(abbrev,'^Paseo\M','P.º');
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
 
