@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This test needs a databse with osml10n extension enabled
+# This test needs a databse with osmabbrev extension enabled
 #
 #
 
@@ -51,7 +51,7 @@ echo -e "\n---- German abbreviations, data from de_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../src/de_tests.csv
+} < ../src/latin_de.csv
 
 IFS=,
 echo -e "\n---- English abbreviations, data from en_test.csv ----"
@@ -64,7 +64,7 @@ echo -e "\n---- English abbreviations, data from en_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../src/en_tests.csv
+} < ../src/latin_en.csv
 
 echo -e "\n---- French abbreviations, data from fr_test.csv ----"
 { 
@@ -76,7 +76,7 @@ echo -e "\n---- French abbreviations, data from fr_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../src/fr_tests.csv
+} < ../src/latin_fr.csv
 
 echo -e "\n---- Italian abbreviations, data from it_test.csv ----"
 { 
@@ -88,7 +88,7 @@ echo -e "\n---- Italian abbreviations, data from it_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../src/it_tests.csv
+} < ../src/latin_it.csv
 
 echo -e "\n---- Dutch abbreviations, data from nl_test.csv ----"
 { 
@@ -100,7 +100,7 @@ echo -e "\n---- Dutch abbreviations, data from nl_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../src/nl_tests.csv
+} < ../src/latin_nl.csv
 
 echo -e "\n---- Russian abbreviations, data from ru_test.csv ----"
 { 
@@ -112,7 +112,7 @@ echo -e "\n---- Russian abbreviations, data from ru_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../src/ru_tests.csv
+} < ../src/cyrillic_ru.csv
 
 echo -e "\n---- Belarus abbreviations, data from uk_test.csv ----"
 { 
@@ -124,6 +124,6 @@ echo -e "\n---- Belarus abbreviations, data from uk_test.csv ----"
     res=$(psql -X -t -A $DB -c "${stmt}")
     printresult "$res" "${nameExpected}"
   done
-} < ../src/uk_tests.csv
+} < ../src/cyrillic_uk.csv
 
 exit $exitval
