@@ -185,8 +185,8 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_es(longname text) RETURNS TEXT
   abbrev=regexp_replace(abbrev,'^Calle\M','C.');
   abbrev=regexp_replace(abbrev,'^Travesía\M','Trva.');
   abbrev=regexp_replace(abbrev,'^Plaza\M','Pl.');
-  abbrev=regexp_replace(abbrev,'^Paseo\M','P.º');
   abbrev=regexp_replace(abbrev,'^Paseo Marítimo\M','P.º Mar.');
+  abbrev=regexp_replace(abbrev,'^Paseo\M','P.º');
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
