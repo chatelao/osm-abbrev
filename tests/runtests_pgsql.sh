@@ -40,7 +40,7 @@ function printresult() {
   echo -e "(expected >$2<, got >$1<)"
 }
 
-for filename in../src/*.csv; do
+for filename in `ls ../src/*.csv`; do
   IFS=,
   echo -e "\n---- German abbreviations, data from ${filename} ----"
   { 
@@ -52,7 +52,7 @@ for filename in../src/*.csv; do
       res=$(psql -X -t -A $DB -c "${stmt}")
       printresult "$res" "${nameExpected}"
     done
-  } < ${filename}
+  } < ../src/${filename}
 done
 
 # IFS=,
