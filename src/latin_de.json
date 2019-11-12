@@ -1,0 +1,135 @@
+[
+  {
+    "test_input": "Schwarzwaldstraße",
+    "test_expected": "Schwarzwaldstr.",
+    "regexp_search": "straße\\M",
+    "regexp_replace": "str.",
+    "test_url": "https://c.tile.openstreetmap.org/16/34200/22784.png"
+  },
+  {
+    "test_input": "Maria-Theresien-Straße",
+    "test_expected": "Maria-Theresien-Str.",
+    "regexp_search": "(?!^)Straße\\M",
+    "regexp_replace": "Str.",
+    "test_url": "https://a.tile.openstreetmap.org/18/142988/90889.png"
+  },
+  {
+    "test_input": "Tillerstrasse",
+    "test_expected": "Tillerstr.",
+    "regexp_search": "strasse\\M",
+    "regexp_replace": "str.",
+    "test_url": "https://tile.openstreetmap.org/18/136494/92271.png"
+  },
+  {
+    "test_input": "Anna-Heer-Strasse",
+    "test_expected": "Anna-Heer-Str.",
+    "regexp_search": "(?!^)Strasse\\M",
+    "regexp_replace": "Str.",
+    "test_url": "https://a.tile.openstreetmap.org/18/137291/91774.png"
+  },
+  {
+    "test_input": "Kronenplatz",
+    "test_expected": "Kronenpl.",
+    "regexp_search": "(?!^)platz\\M",
+    "regexp_replace": "pl.",
+    "test_url": "https://tile.openstreetmap.org/19/277196/173636.png"
+  },
+  {
+    "test_input": "Gottesauer Platz",
+    "test_expected": "Gottesauer Pl.",
+    "regexp_search": "(?!^)Platz\\M",
+    "regexp_replace": "Pl.",
+    "test_url": "https://tile.openstreetmap.org/19/274411/180036.png"
+  },
+  {
+    "test_input": "Kreuzgasse",
+    "test_expected": "Kreuzg.",
+    "regexp_search": "(?!^)gasse\\M",
+    "regexp_replace": "g.",
+    "test_url": "https://b.tile.openstreetmap.org/19/272997/184516.png"
+  },
+  {
+    "test_input": "Hohle Gasse",
+    "test_expected": "Hohle G.",
+    "regexp_search": "(?!^)Gasse\\M",
+    "regexp_replace": "G.",
+    "test_url": "https://a.tile.openstreetmap.org/17/69023/45976.png"
+  },
+  {
+    "test_input": "Gassenäckerstrasse",
+    "test_expected": "Gassenäckerstr.",
+    "regexp_search": "",
+    "regexp_replace": "",
+    "test_url": "https://a.tile.openstreetmap.org/17/68924/45811.png"
+  },
+  {
+    "test_input": "Doktor-Rohmer-Weg",
+    "test_expected": "Dr.-Rohmer-Weg",
+    "regexp_search": "Doktor",
+    "regexp_replace": "Dr.",
+    "test_url": "https://a.tile.openstreetmap.org/17/68608/44399.png"
+  },
+  {
+    "test_input": "Professor-Doktor-No-Straße",
+    "test_expected": "Prof.-Dr.-No-Str.",
+    "regexp_search": "",
+    "regexp_replace": "",
+    "test_url": ""
+  },
+  {
+    "test_input": "Professor Ludwig Strauchgasse",
+    "test_expected": "Prof. Ludwig Strauchg.",
+    "regexp_search": "Professor",
+    "regexp_replace": "Prof.",
+    "test_url": "https://c.tile.openstreetmap.org/17/71474/45390.png"
+  },
+  {
+    "test_input": "Bürgermeister-Wagner-Strasse",
+    "test_expected": "Bgm.-Wagner-Str.",
+    "regexp_search": "Bürgermeister",
+    "regexp_replace": "Bgm.",
+    "test_url": "https://c.tile.openstreetmap.org/18/139109/87789.png"
+  },
+  {
+    "test_input": "Sankt Gallerstrasse",
+    "test_expected": "St. Gallerstr.",
+    "regexp_search": "Sankt\\M",
+    "regexp_replace": "St.",
+    "test_url": "https://b.tile.openstreetmap.org/18/137578/91647.png"
+  },
+  {
+    "test_input": "Sankt-Zeno-Gasse",
+    "test_expected": "St.-Zeno-G.",
+    "regexp_search": "",
+    "regexp_replace": "",
+    "test_url": "https://a.tile.openstreetmap.org/19/276157/183842.png"
+  },
+  {
+    "test_input": "Obere Hauptgasse",
+    "test_expected": "Ob. Hauptg.",
+    "regexp_search": "^Obere[rs]?\\M",
+    "regexp_replace": "Ob.",
+    "test_url": "https://a.tile.openstreetmap.org/18/136629/92460.png"
+  },
+  {
+    "test_input": "Unterer Aareggweg",
+    "test_expected": "Unt. Aareggweg",
+    "regexp_search": "^Untere[rs]?\\M",
+    "regexp_replace": "Unt.",
+    "test_url": "https://c.tile.openstreetmap.org/18/136499/92232.png"
+  },
+  {
+    "test_input": "Vorderer Schermenweg",
+    "test_expected": "Vord. Schermenweg",
+    "regexp_search": "^Vordere[rs]\\M",
+    "regexp_replace": "Vord.",
+    "test_url": "https://b.tile.openstreetmap.org/17/68258/46115.png"
+  },
+  {
+    "test_input": "Hintere Engehaldenstrasse",
+    "test_expected": "Hint. Engehaldenstr.",
+    "regexp_search": "^Hintere[rs]\\M",
+    "regexp_replace": "Hint.",
+    "test_url": "https://c.tile.openstreetmap.org/18/136494/92234.png"
+  }
+]
