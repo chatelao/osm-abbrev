@@ -3,7 +3,7 @@ dist: bionic
 addons:
   postgresql: '10'
   apt:
-    # update: true  
+    update: true  
     packages:
     - devscripts
     - equivs
