@@ -1,5 +1,8 @@
 test_input                  ,test_expected           ,regexp_search    ,regexp_replace ,test_url
 92 Avenue NW                ,92 Ave. NW              ,(?!^)Avenue\M    ,Ave.           ,
+1st Avenue                  ,1st Ave.                ,                 ,               ,
+2nd Avenue                  ,2nd Ave.                ,                 ,               ,
+5th Avenue                  ,5th Ave.                ,                 ,               ,
 William S Canning Boulevard ,William S Canning Blvd. ,(?!^)Boulevard\M ,Blvd.          ,
 Mulholland Drive            ,Mulholland Dr.          ,Drive\M          ,Dr.            ,https://b.tile.openstreetmap.de/19/89747/209219.png
 Sabin Place                 ,Sabin Pl.               ,Place\M          ,Pl.            ,
