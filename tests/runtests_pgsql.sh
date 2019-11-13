@@ -42,7 +42,7 @@ function printresult() {
 
 for filename in `ls ../src/*.csv`; do
   IFS=,
-  echo -e "\n---- German abbreviations, data from ${filename} ----"
+  echo -e "\n---- Test results based on ${filename} ----"
   { 
     read
     while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
@@ -54,90 +54,5 @@ for filename in `ls ../src/*.csv`; do
     done
   } < ../src/${filename}
 done
-
-# IFS=,
-# echo -e "\n---- English abbreviations, data from en_test.csv ----"
-# { 
-#   read
-#   while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
-#   do
-#     stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-#     echo ${stmt}
-#     res=$(psql -X -t -A $DB -c "${stmt}")
-#     printresult "$res" "${nameExpected}"
-#   done
-# } < ../src/latin_en.csv
-
-# echo -e "\n---- French abbreviations, data from fr_test.csv ----"
-# { 
-#   read
-#   while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
-#   do
-#     stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-#     echo ${stmt}
-#     res=$(psql -X -t -A $DB -c "${stmt}")
-#     printresult "$res" "${nameExpected}"
-#   done
-# } < ../src/latin_fr.csv
-
-# echo -e "\n---- Italian abbreviations, data from it_test.csv ----"
-# { 
-#   read
-#   while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
-#   do
-#     stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-#     echo ${stmt}
-#     res=$(psql -X -t -A $DB -c "${stmt}")
-#     printresult "$res" "${nameExpected}"
-#   done
-# } < ../src/latin_it.csv
-
-# echo -e "\n---- Italian abbreviations, data from it_test.csv ----"
-# { 
-#   read
-#   while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
-#   do
-#     stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-#     echo ${stmt}
-#     res=$(psql -X -t -A $DB -c "${stmt}")
-#     printresult "$res" "${nameExpected}"
-#   done
-# } < ../src/latin_es.csv
-
-# echo -e "\n---- Dutch abbreviations, data from nl_test.csv ----"
-# { 
-#   read
-#   while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
-#   do
-#     stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-#     echo ${stmt}
-#     res=$(psql -X -t -A $DB -c "${stmt}")
-#     printresult "$res" "${nameExpected}"
-#   done
-# } < ../src/latin_nl.csv
-
-# echo -e "\n---- Russian abbreviations, data from ru_test.csv ----"
-# { 
-#   read
-#   while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
-#   do
-#     stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-#     echo ${stmt}
-#     res=$(psql -X -t -A $DB -c "${stmt}")
-#     printresult "$res" "${nameExpected}"
-#   done
-# } < ../src/cyrillic_ru.csv
-
-# echo -e "\n---- Belarus abbreviations, data from uk_test.csv ----"
-# { 
-#   read
-#   while read nameIn nameExpected nameRuleLong nameRuleShort nameUrlSample
-#   do
-#     stmt="select osmabbrv_street_abbrev_all('${nameIn}');"
-#     echo ${stmt}
-#     res=$(psql -X -t -A $DB -c "${stmt}")
-#     printresult "$res" "${nameExpected}"
-#   done
-# } < ../src/cyrillic_uk.csv
 
 exit $exitval
