@@ -13,7 +13,6 @@ jobs:
       uses: Harmon758/postgresql-action@v1.0.0
     - name: before_install
       run: |
-        sudo service postgresql stop && sudo service postgresql start $POSTGRESQL_VERSION
         npm install -g csvtojson
         npm install -g mustache
         cd ${TRAVIS_BUILD_DIR}/src
