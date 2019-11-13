@@ -158,7 +158,9 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_fr(longname text) RETURNS TEXT
   abbrev text;
  BEGIN
   abbrev=longname;
-  abbrev=regexp_replace(abbrev,'(?<=^|1re |[0-9]e )Avenue\M','Av.');
+  abbrev=regexp_replace(abbrev,'^Avenue\M','Av.');
+  abbrev=regexp_replace(abbrev,'^1([èe]?r)?e Avenue\M','1ʳᵉ Av.'); -- https://regex101.com/r/jbG1Sj/1
+  abbrev=regexp_replace(abbrev,'(?<=^[0-9]*)e Avenue\M','ᵉ Av.');
   abbrev=regexp_replace(abbrev,'^Boulevard\M','Bd');
   abbrev=regexp_replace(abbrev,'^Chemin\M','Ch.');
   abbrev=regexp_replace(abbrev,'^Esplanade\M','Espl.');
@@ -252,7 +254,7 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_en(longname text) RETURNS TEXT
  BEGIN
   abbrev=longname;
   -- Exclude french avenues
-  abbrev=regexp_replace(abbrev,'(?<!^|1re |[0-9]e )Avenue\M','Ave.');
+  abbrev=regexp_replace(abbrev,'(?<!^([0-9]*([èe]?r)?e )?)Avenue\M','Ave.'); -- https://regex101.com/r/bYk8ki/1
   abbrev=regexp_replace(abbrev,'(?<!^)Boulevard\M','Blvd.');
   abbrev=regexp_replace(abbrev,'Crescent\M','Cres.');
   abbrev=regexp_replace(abbrev,'Court\M','Ct');
