@@ -158,7 +158,7 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_fr(longname text) RETURNS TEXT
   abbrev text;
  BEGIN
   abbrev=longname;
-  abbrev=regexp_replace(abbrev,'(?<=^|[0-9]re |[0-9]e )Avenue\M','Av.');
+  abbrev=regexp_replace(abbrev,'(?<=^[0-9]*(è)?re(e)? )Avenue\M','Av.');
   abbrev=regexp_replace(abbrev,'^Boulevard\M','Bd');
   abbrev=regexp_replace(abbrev,'^Chemin\M','Ch.');
   abbrev=regexp_replace(abbrev,'^Esplanade\M','Espl.');
