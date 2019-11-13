@@ -30,8 +30,8 @@ before_install:
   # - for i in ${TRAVIS_BUILD_DIR}/src/*.csv.json; do cat $i; done
   # - for i in ${TRAVIS_BUILD_DIR}/src/*.csv.json; do jq $i > $i; done
   # - jq "[file_name]" ${TRAVIS_BUILD_DIR}/src/*.csv.json
-  - cd ${TRAVIS_BUILD_DIR}/src
-  - mustache test.json street_abbrv.mustache.sql
+  # - cd ${TRAVIS_BUILD_DIR}/src
+  # - mustache test.json street_abbrv.mustache.sql
 
 install:
   - cd ${TRAVIS_BUILD_DIR}
