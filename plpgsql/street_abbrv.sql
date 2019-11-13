@@ -173,7 +173,6 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_fr(longname text) RETURNS TEXT
 
   -- Use scripts (because we can)
   -- https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts#Latin_and_Greek_tables
-  -- ᵃ	ᵇ	ᶜ	ᵈ	ᵉ	ᶠ	ᵍ	ʰ	ⁱ	ʲ	ᵏ	ˡ	ᵐ	ⁿ	ᵒ	ᵖ		ʳ	ˢ	ᵗ	ᵘ	ᵛ	ʷ	ˣ	ʸ	ᶻ
   abbrev=regexp_replace(abbrev,'^1re\M','1ʳᵉ');
   abbrev=regexp_replace(abbrev,'(?<=^[0-9]+)e\M','ᵉ');
   return abbrev;
@@ -287,7 +286,7 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_en(longname text) RETURNS TEXT
   abbrev=regexp_replace(abbrev,'Southeast\M', 'SE');
 
   -- Use superscripts (because we can)
-  -- ᵃ	ᵇ	ᶜ	ᵈ	ᵉ	ᶠ	ᵍ	ʰ	ⁱ	ʲ	ᵏ	ˡ	ᵐ	ⁿ	ᵒ	ᵖ		ʳ	ˢ	ᵗ	ᵘ	ᵛ	ʷ	ˣ	ʸ	ᶻ
+  -- https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts#Latin_and_Greek_tables  
   abbrev=regexp_replace(abbrev,'\M1st\M','1ˢᵗ');
   abbrev=regexp_replace(abbrev,'\M2nd\M','2ⁿᵈ');
   abbrev=regexp_replace(abbrev,'\M3rd\M','3ʳᵈ');
