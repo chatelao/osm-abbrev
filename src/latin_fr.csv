@@ -1,8 +1,10 @@
 test_input,test_expected,regexp_search,regexp_replace,test_url
-Avenue de la Gare,Av. de la Gare,Avenue,Av.,
+Avenue de la Gare,Av. de la Gare,^Avenue\M,Av.,
+1ère Avenue du Domaine-Patry,1re Av. du Domaine-Patry,^1([eè]?r)?e Avenue\M,1re Av.,
+1ere Avenue du Domaine-Patry,1re Av. du Domaine-Patry,,,
 1re Avenue du Domaine-Patry,1re Av. du Domaine-Patry,,,
-1e Avenue de la Montée-Gordon,1e Av. de la Montée-Gordon,,,
-2e Avenue du Lac-des-Pins,2e Av. du Lac-des-Pins,,,
+1e Avenue de la Montée-Gordon,1re Av. de la Montée-Gordon,,,
+2e Avenue du Lac-des-Pins,2e Av. du Lac-des-Pins,(?<=^[0-9]*e )Avenue,Av.,
 201e Avenue,201e Av.,,,
 Boulevard de Pérolles,Bd de Pérolles,Boulevard,Bd,
 Chemin des bains,Ch. des bains,Chemin,Ch.,
