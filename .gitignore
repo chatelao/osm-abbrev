@@ -14,7 +14,6 @@ debian/debhelper-build-stamp
 *--*.sql
 *.control
 debian/files
-country_languages.data
 debian/.debhelper
 country_osm_grid.sql
 .vagrant/*

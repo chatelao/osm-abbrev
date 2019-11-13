@@ -9,7 +9,7 @@ EXTDIR=/usr/share/postgresql/10
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 
-all: $(patsubst %.md,%.html,$(wildcard *.md)) INSTALL README Makefile $(SUBDIRS) osmabbrv.control country_languages.data
+all: $(patsubst %.md,%.html,$(wildcard *.md)) INSTALL README Makefile $(SUBDIRS) osmabbrv.control
 
 INSTALL: INSTALL.md
 	pandoc --from markdown_github --to plain --standalone $< --output $@
@@ -35,7 +35,6 @@ install: $(INSTALLDIRS) all
 	mkdir -p $(DESTDIR)$(EXTDIR)/extension
 	install -D -c -m 644 osmabbrv--$(EXTVERSION).sql $(DESTDIR)$(EXTDIR)/extension/
 	install -D -c -m 644 osmabbrv.control $(DESTDIR)$(EXTDIR)/extension/
-	install -D -c -m 644 *.data $(DESTDIR)$(EXTDIR)/extension/
 
 $(INSTALLDIRS):
 	$(MAKE) -C $(@:install-%=%) install
@@ -46,19 +45,11 @@ deb:
 clean: $(CLEANDIRS)
 	rm -rf $$(grep .gitignore)
 	
-# remove everything including the files from the interwebs
-mrproper: clean
-	rm country_osm_grid.sql
-	rm country_languages.data
-	
 $(CLEANDIRS):
 	$(MAKE) -C $(@:clean-%=%) clean
 
-osmabbrv--$(EXTVERSION).sql: plpgsql/*.sql country_languages.data
+osmabbrv--$(EXTVERSION).sql: plpgsql/*.sql
 	./gen_osmabbrv_extension.sh $(EXTDIR)/extension $(EXTVERSION)
 	
 osmabbrv.control: osmabbrv--$(EXTVERSION).sql
 	sed -e "s/VERSION/$(EXTVERSION)/g" osmabbrv.control.in >osmabbrv.control
-
-country_languages.data:
-	grep -v \# country_languages.data.in >country_languages.data
