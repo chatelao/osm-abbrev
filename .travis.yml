@@ -18,7 +18,8 @@ env:
 before_install:
   # Switch to active PostGre version
   - sudo /etc/init.d/postgresql stop
-  - sudo service postgresql start $POSTGRESQL_VERSION
+  - sudo /etc/init.d/postgresql start $POSTGRESQL_VERSION
+  # - sudo service postgresql start $POSTGRESQL_VERSION
   
   # Install more tools
   - npm install -g csvtojson
