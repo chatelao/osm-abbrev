@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # generate psql extension "osmabbrv"
-# from plpgsql scripts, version must be given as parameter
+# from plpgsql scripts
+# version must be given as parameter
 if [ $# -ne 2 ]; then
   echo "usage: genextension.sh <data_target_dir> <version>" >&2
   exit 1
@@ -14,6 +15,21 @@ for cmd in curl sed basename; do
     exit 1
   fi
 done
+
+# # download country_osm_grid.sql from nominatim if not available
+# if ! [ -f "country_osm_grid.sql" ]; then
+#   rm -f country_osm_grid.sql
+#   echo -n "Trying to download country_grid.sql.gz from nominatim.org... "
+#   curl -s http://www.nominatim.org/data/country_grid.sql.gz |gzip -d >country_osm_grid.sql
+
+#   if ! [ -s country_osm_grid.sql ]; then
+#     rm -f country_osm_grid.sql
+#     echo "failed."
+#     exit 1
+#   else
+#     echo "done."
+#   fi
+# fi
 
 SCRIPTS=plpgsql/*
 

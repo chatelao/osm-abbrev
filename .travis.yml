@@ -1,13 +1,14 @@
 dist: bionic
 
 addons:
-  postgresql: 10
+  postgresql: '10'
   apt:
-    # update: true  
+    update: true  
     packages:
     - devscripts
     - equivs
     - pandoc
+    # - postgresql-10-postgis-2.4
     - jq
 
 before_install:
@@ -17,20 +18,28 @@ before_install:
   # - for i in ${TRAVIS_BUILD_DIR}/src/*.csv.json; do cat $i; done
   # - for i in ${TRAVIS_BUILD_DIR}/src/*.csv.json; do jq $i > $i; done
   # - jq "[file_name]" ${TRAVIS_BUILD_DIR}/src/*.csv.json
-  # - cd ${TRAVIS_BUILD_DIR}/src
-  # - mustache test.json street_abbrv.mustache.sql
+  - cd ${TRAVIS_BUILD_DIR}/src
+  - mustache test.json street_abbrv.mustache.sql
 
 install:
   - cd ${TRAVIS_BUILD_DIR}
   - sudo mk-build-deps -i debian/control
   
   - pg_lsclusters
+
   - pg_config --sharedir
+  - sudo pg_config --sharedir
+  - sudo -u postgres pg_config --sharedir
+
   - createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 gis
+  # - psql --dbname=gis --command="CREATE EXTENSION fuzzystrmatch"
+  # - psql --dbname=gis --command="CREATE EXTENSION unaccent"
+  # - psql --dbname=gis --command="CREATE EXTENSION postgis"
+  # - psql --dbname=gis --command="CREATE EXTENSION hstore"
 
   - cd ${TRAVIS_BUILD_DIR}
   - sudo make install
-
+  - ls -ltra /usr/share/postgresql/10/extension
   - psql --dbname=gis --command="CREATE EXTENSION osmabbrv"
 
 script:
