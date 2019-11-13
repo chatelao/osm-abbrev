@@ -48,6 +48,8 @@ Vagrant.configure("2") do |config|
     #
     cd /vagrant
     mk-build-deps -t 'apt-get -o Debug::pkgProblemResolver=yes --install-recommends -qqy' -i -r debian/control
+
+    cd /vagrant
     make install
 
     #
