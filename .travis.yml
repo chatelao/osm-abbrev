@@ -1,29 +1,16 @@
 dist: bionic
 
 addons:
-  postgresql: 9.4
+  postgresql: 10
   apt:
-    update: true  
+    # update: true  
     packages:
     - devscripts
     - equivs
     - pandoc
     - jq
 
-# env:
-#   - POSTGRESQL_VERSION=9.4
-#   - POSTGRESQL_VERSION=9.5
-#   - POSTGRESQL_VERSION=10
-#   - POSTGRESQL_VERSION=11
-
 before_install:
-  # # Switch to active PostGre version
-  # - sudo /etc/init.d/postgresql stop
-  # - sudo echo "/etc/init.d/postgresql start ${POSTGRESQL_VERSION}"
-  # - sudo /etc/init.d/postgresql start ${POSTGRESQL_VERSION}
-  # # - sudo service postgresql start $POSTGRESQL_VERSION
-  
-  # Install more tools
   - npm install -g csvtojson
   - npm install -g mustache
   

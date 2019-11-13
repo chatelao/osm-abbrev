@@ -3,7 +3,8 @@
 # Get extension version number from debian/changelog 
 EXTVERSION=$(shell head -n1 debian/changelog |cut -d \( -f 2 |cut -d \) -f 1)
 # EXTDIR=$(shell sudo -u postgres pg_config --sharedir)
-EXTDIR=/usr/share/postgresql/$(shell pg_lsclusters | grep online | cut -d " " -f 1 )
+# EXTDIR=/usr/share/postgresql/$(shell pg_lsclusters | grep online | cut -d " " -f 1 )
+EXTDIR=/usr/share/postgresql/9.4
 
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
