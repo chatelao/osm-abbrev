@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # generate psql extension "osmabbrv"
-# from plpgsql scripts
-# version must be given as parameter
+# from plpgsql scripts, version must be given as parameter
 if [ $# -ne 2 ]; then
   echo "usage: genextension.sh <data_target_dir> <version>" >&2
   exit 1
