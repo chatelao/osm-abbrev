@@ -289,11 +289,11 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_en(longname text) RETURNS TEXT
 
   -- Use superscripts (because we can)
   -- ᵃ	ᵇ	ᶜ	ᵈ	ᵉ	ᶠ	ᵍ	ʰ	ⁱ	ʲ	ᵏ	ˡ	ᵐ	ⁿ	ᵒ	ᵖ		ʳ	ˢ	ᵗ	ᵘ	ᵛ	ʷ	ˣ	ʸ	ᶻ
-  abbrev=regexp_replace(abbrev,'^1st\M','1ˢᵗ');
-  abbrev=regexp_replace(abbrev,'^2nd\M','2ⁿᵈ');
-  abbrev=regexp_replace(abbrev,'^3rd\M','3ʳᵈ');
+  abbrev=regexp_replace(abbrev,'\M1st\M','1ˢᵗ');
+  abbrev=regexp_replace(abbrev,'\M2nd\M','2ⁿᵈ');
+  abbrev=regexp_replace(abbrev,'\M3rd\M','3ʳᵈ');
   
-  abbrev=regexp_replace(abbrev,'(?<=^[0-9]+)th\M','ᵗʰ');
+  abbrev=regexp_replace(abbrev,'(?<=\M[0-9]+)th\M','ᵗʰ');
 
   return abbrev;
  END;
