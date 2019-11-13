@@ -171,8 +171,7 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_fr(longname text) RETURNS TEXT
   abbrev=regexp_replace(abbrev,'^Ruelle\M','Rle');
   abbrev=regexp_replace(abbrev,'^Sentier\M','Sent.');
 
-  -- Use 
-  scripts (because we can)
+  -- Use scripts (because we can)
   -- https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts#Latin_and_Greek_tables
   -- ᵃ	ᵇ	ᶜ	ᵈ	ᵉ	ᶠ	ᵍ	ʰ	ⁱ	ʲ	ᵏ	ˡ	ᵐ	ⁿ	ᵒ	ᵖ		ʳ	ˢ	ᵗ	ᵘ	ᵛ	ʷ	ˣ	ʸ	ᶻ
   abbrev=regexp_replace(abbrev,'^1re\M','1ʳᵉ');
