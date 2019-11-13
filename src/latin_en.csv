@@ -1,5 +1,5 @@
 test_input,test_expected,regexp_search,regexp_replace,test_url
-92 Avenue NW,92 Ave. NW,(?!^)Avenue\M(?<!^([0-9]*([èe]?r)?e )?)Avenue\M,Ave.,
+92 Avenue NW,92 Ave. NW,(?<!^([0-9]*([èe]?r)?e )?)Avenue\M,Ave.,
 1st Avenue,1st Ave.,,,
 2nd Avenue,2nd Ave.,,,
 5th Avenue,5th Ave.,,,
