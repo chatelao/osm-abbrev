@@ -159,8 +159,8 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_fr(longname text) RETURNS TEXT
  BEGIN
   abbrev=longname;
   abbrev=regexp_replace(abbrev,'^Avenue\M','Av.');
-  abbrev=regexp_replace(abbrev,'^1([èe]?r)?e Avenue\M','1ʳᵉ Av.'); -- https://regex101.com/r/jbG1Sj/1
-  abbrev=regexp_replace(abbrev,'(?<=^[0-9]*)e Avenue\M','ᵉ Av.');
+  abbrev=regexp_replace(abbrev,'^1([èe]?r)?e Avenue\M','1re Av.'); -- https://regex101.com/r/jbG1Sj/1
+  abbrev=regexp_replace(abbrev,'(?<=^[0-9]+)e Avenue\M','e Av.');
   abbrev=regexp_replace(abbrev,'^Boulevard\M','Bd');
   abbrev=regexp_replace(abbrev,'^Chemin\M','Ch.');
   abbrev=regexp_replace(abbrev,'^Esplanade\M','Espl.');
@@ -170,6 +170,12 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_fr(longname text) RETURNS TEXT
   abbrev=regexp_replace(abbrev,'^Route\M','Rte');
   abbrev=regexp_replace(abbrev,'^Ruelle\M','Rle');
   abbrev=regexp_replace(abbrev,'^Sentier\M','Sent.');
+
+  -- Use superscripts (because we can)
+  -- https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts#Latin_and_Greek_tables
+  -- ᵃ	ᵇ	ᶜ	ᵈ	ᵉ	ᶠ	ᵍ	ʰ	ⁱ	ʲ	ᵏ	ˡ	ᵐ	ˢ	ᵒ	ᵖ		ʳ	ˢ	ᵗ	ᵘ	ᵛ	ʷ	ˣ	ʸ	ᶻ
+  abbrev=regexp_replace(abbrev,'^1re\M','1ʳᵉ');
+  abbrev=regexp_replace(abbrev,'(?<=^[0-9]+)e\M','ᵉ');
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
@@ -279,6 +285,14 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_en(longname text) RETURNS TEXT
   abbrev=regexp_replace(abbrev,'Northeast\M', 'NE');
   abbrev=regexp_replace(abbrev,'Southwest\M', 'SW');
   abbrev=regexp_replace(abbrev,'Southeast\M', 'SE');
+
+  -- Use superscripts (because we can)
+  -- ᵃ	ᵇ	ᶜ	ᵈ	ᵉ	ᶠ	ᵍ	ʰ	ⁱ	ʲ	ᵏ	ˡ	ᵐ	ˢ	ᵒ	ᵖ		ʳ	ˢ	ᵗ	ᵘ	ᵛ	ʷ	ˣ	ʸ	ᶻ
+  abbrev=regexp_replace(abbrev,'^1st\M','1ˢᵗ');
+  abbrev=regexp_replace(abbrev,'^2nd\M','2ˢᵈ');
+  abbrev=regexp_replace(abbrev,'^3rd\M','3ʳᵈ');
+  
+  abbrev=regexp_replace(abbrev,'(?<=^[0-9]+)th\M','ᵗʰ');
 
   return abbrev;
  END;
