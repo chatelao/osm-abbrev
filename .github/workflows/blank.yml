@@ -1,0 +1,33 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup PostgreSQL
+      uses: Harmon758/postgresql-action@v1.0.0
+    - name: before_install
+      run: |
+        npm install -g csvtojson
+        npm install -g mustache
+        cd ${TRAVIS_BUILD_DIR}/src
+        mustache test.json street_abbrv.mustache.sql        
+        name: Run a multi-line script
+    - name: install
+      run: |
+        cd ${TRAVIS_BUILD_DIR}
+        sudo mk-build-deps -i debian/control
+        pg_lsclusters
+        pg_config --sharedir
+        createdb --encoding=UTF8 --locale=en_US.UTF-8 --template=template0 gis
+        sudo make install
+        psql --dbname=gis --command="CREATE EXTENSION osmabbrv"
+    - name: script
+      run: |
+        - cd tests
+        - ./runtests_pgsql.sh gis
