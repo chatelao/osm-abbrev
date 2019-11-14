@@ -259,7 +259,7 @@ CREATE or REPLACE FUNCTION osmabbrv_street_abbrev_en(longname text) RETURNS TEXT
  BEGIN
   abbrev=longname;
   -- Exclude french avenues
-  abbrev=regexp_replace(abbrev,'(?<!^([0-9]+([èe]?r)?e )?)Avenue\M','Ave.'); -- https://regex101.com/r/bYk8ki/1
+  abbrev=regexp_replace(abbrev,'(?<!^([0-9]+([èe]?r)?e )?)Avenue\M','Ave.'); -- https://regex101.com/r/bYk8ki/2
   abbrev=regexp_replace(abbrev,'(?<!^)Boulevard\M','Blvd.');
   abbrev=regexp_replace(abbrev,'Crescent\M','Cres.');
   abbrev=regexp_replace(abbrev,'Court\M','Ct');
