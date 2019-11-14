@@ -10,10 +10,7 @@ SUBDIRS = gen
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 
-all: $(patsubst %.md,%.html,$(wildcard *.md)) INSTALL README Makefile $(SUBDIRS) osmabbrv.control
-
-INSTALL: INSTALL.md
-	pandoc --from markdown_github --to plain --standalone $< --output $@
+all: $(patsubst %.md,%.html,$(wildcard *.md)) README Makefile $(SUBDIRS) osmabbrv.control gen/%.json
 
 README: README.md
 	pandoc --from markdown_github --to plain --standalone $< --output $@
@@ -21,8 +18,11 @@ README: README.md
 %.html: %.md
 	pandoc --from markdown_github --to html --standalone $< --output $@
 
-src/%.csv: gen/%.json
+gen/%.json: src/%.csv
 	csvtojson $< $@
+
+plpgsql/%.sql: gen/%.json
+	mustache $< $@ src/street_abbrv.mustache.sql
 
 .PHONY:	subdirs $(SUBDIRS)
       
