@@ -1,0 +1,37 @@
+@startuml
+
+folder src {
+  file "*.csv" as csv
+  file "*.mustache" as mustache
+}
+folder gen {
+  file "*.sql"  as sql
+  file "*.json" as json
+  folder "extension"  as ext
+}
+
+[CsvToJson]
+csv --> CsvToJson : 1.1
+CsvToJson -> json : 1.2
+
+[Mustache]
+mustache --> Mustache : 2.1
+Mustache <-- json : 2.2
+json .> sql
+Mustache --> sql : 2.3
+sql -> ext : 2.4
+
+folder tests {
+    component runtest.sh as runtest
+}
+csv --> runtest : 4.1
+
+[TestDB]
+ext --> TestDB : 2.5
+runtest -> TestDB : 4.2
+
+file TestReport
+TestDB -> TestReport: 4.3
+
+
+@enduml
