@@ -18,11 +18,11 @@ README: README.md
 %.html: %.md
 	pandoc --from markdown_github --to html --standalone $< --output $@
 
-gen/%.json: src/%.csv
+gen/%.json: src/*.csv
 	csvtojson $< $@
 
 plpgsql/%.sql: gen/%.json
-	mustache $< $@ src/street_abbrv.mustache.sql
+	mustache $< src/street_abbrv.mustache.sql > $@
 
 .PHONY:	subdirs $(SUBDIRS)
       
