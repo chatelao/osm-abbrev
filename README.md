@@ -27,13 +27,25 @@ SELECT osmabbrv_street_abbrev_all('Gutenbergstrasse')
 ```
 Gutenbergstr. to be used later.
 
-## ToDo
+## Contributions
+
+### The next ToDos
+
 1. [ ] Build a Vagrant development box.
 1. [ ] Export .csv definition to pgSQL (PostGre Extension).
 1. [ ] Export .csv definition to Markdown
 1. [ ] Export .csv definition to JSON.
 1. [ ] Export .csv definition to XML.
 1. [ ] Export .csv definition to Python.
+
+### The build pipline
+
+The project is focused on two parts:
+
+1. A CSV file per language to define the rules and testcaeses
+1. A several generators to produce language / format specific output like JSON, SQL, etc.
+
+[Build Pipeline](img/build/build.png)
 
 ## Special thanks
 
