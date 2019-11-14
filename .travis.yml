@@ -38,6 +38,7 @@ install:
   # - psql --dbname=gis --command="CREATE EXTENSION hstore"
 
   - cd ${TRAVIS_BUILD_DIR}
+  - mkdir gen
   - sudo make install
   - ls -ltra /usr/share/postgresql/10/extension
   - psql --dbname=gis --command="CREATE EXTENSION osmabbrv"
