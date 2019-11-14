@@ -6,7 +6,6 @@ EXTVERSION=$(shell head -n1 debian/changelog |cut -d \( -f 2 |cut -d \) -f 1)
 EXTDIR=/usr/share/postgresql/10
 
 # SUBDIRS = kanjitranscript icutranslit
-SUBDIRS = gen
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 
