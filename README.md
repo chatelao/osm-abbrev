@@ -45,7 +45,7 @@ The project is focused on two parts:
 1. A CSV file per language to define the rules and testcaeses
 1. A several generators to produce language / format specific output like JSON, SQL, etc.
 
-[Build Pipeline](img/build/build.png)
+![Build Pipeline](img/build/build.png)
 
 ## Special thanks
 
