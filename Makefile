@@ -18,7 +18,7 @@ README: README.md
 	pandoc --from markdown_github --to html --standalone $< --output $@
 
 gen/%.json: src/*.csv
-	csvtojson $< gen/$(<F)
+	csvtojson $< > gen/$(<F)
 
 plpgsql/%.sql: gen/%.json
 	mustache $< src/street_abbrv.mustache.sql > $@
