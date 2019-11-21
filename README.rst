@@ -1,15 +1,15 @@
 OSM Abbreviations
 #################
 
-The **osm-abbrev** project provides rules to abbreviate geographic names, especially of streets and places.
+The **osm-abbrev** project provides abbreviations to streets, places and other geographic names.
 
 Why abbreviations for street and place names?
 ==============================================
 
-Abbreviated street names on maps, allow to provide information on the same space. See below the comparison between OpenStreetMap.org_  with long and OpenStreetMap.de_ with shortend street names.
+Abbreviated street names on maps help to increase the infomration density as you can see very well on the comparison between OpenStreetMap.org_  with long and OpenStreetMap.de_ with shortend street names below.
 
-.. _OpenStreetMap.de: https://www.OpenStreetMap.de
-.. _OpenStreetMap.org: https://www.OpenStreetMap.de/karte.html
+.. _OpenStreetMap.de: https://www.OpenStreetMap.de/karte.html
+.. _OpenStreetMap.org: https://www.OpenStreetMap.org
 
 +----------------------------------------------------------------+---------------------------------------------------------------+
 | Long names                                                     | Short names                                                   |
@@ -27,7 +27,7 @@ Installation
 ============
 
 If you just installed the debian package all you have to do now ist to enable
-our extension in your PostgreSQL database as follows:
+the extension in your PostgreSQL database:
 
 .. code-block:: sql
 
@@ -47,6 +47,8 @@ Gutenbergstr. to be used later.
 Contributions
 ==============
 
+The project is far away from being completed, if you would like to contritute a little bit or a lot feel free to fork and hand in pull-request or just open an issue. Below are some major steps on the roadmap, but priorities may change.
+
 The next ToDos
 ----------------
 
@@ -57,13 +59,14 @@ The next ToDos
 #. [ ] Export .csv definition to XML.
 #. [ ] Export .csv definition to Python.
 
-The build pipline
------------------
+About the  build 
+----------------
 
-The project is focused on two parts:
+The architecture is focused on two parts:
 
-1. A CSV file per language to define the rules and testcaeses
-1. A several generators to produce language / format specific output like JSON, SQL, etc.
+1. A set of CSV files, one per language to define the rules and testcaeses.
+1. A another set of generators or implementations to provide solutions for as many languages & formats as possible. Currently main target are JSON and PGPLSQL, but feel free to extend it with any language you master well.
+1. Integrated tests in the CI/CD pipeline to prove that the code produced by 2. is working well according to the testset of 1.
 
 .. image:: https://raw.githubusercontent.com/chatelao/osm-abbrev/master/img/build/build.png
    :scale: 50 %
@@ -71,6 +74,6 @@ The project is focused on two parts:
 Special thanks
 ==============
 
-The technical foundation and inspiration for this project is the mapnik-german-l10n_ , which provides a fabulous support to transliterate maps. A look over there is recommended for all omni-lingual fans.
+The technical foundation and inspiration for this project was laid in the mapnik-german-l10n_ project, which focus on transliteration of maps. Having is recommended for all omni-lingual fans, as well as the use of OpenStreetMap.de_.
 
 .. _mapnik-german-l10n: https://github.com/giggls/mapnik-german-l10n
