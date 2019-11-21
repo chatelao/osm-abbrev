@@ -59,7 +59,7 @@ The project is focused on two parts:
 1. A CSV file per language to define the rules and testcaeses
 1. A several generators to produce language / format specific output like JSON, SQL, etc.
 
-.. image:: img/build/build.png
+.. image:: https://raw.githubusercontent.com/chatelao/osm-abbrev/master/img/build/build.png
 
 Special thanks
 ==============
