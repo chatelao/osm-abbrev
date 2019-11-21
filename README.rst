@@ -8,9 +8,11 @@ Why abbreviations for street and place names?
 
 Abbreviated street names on maps, allow to provide information on the same space. See below the comparison between [OpenStreetMap.org](https://www.OpenStreetMap.org) with long and [OpenStreetMap.de](https://www.OpenStreetMap.de/karte.html) with shortend street names.
 
++-----+-----+
 | Long names | Short names |
 +-----+-----+
-| ![Long](https://b.tile.openstreetmap.org/16/34123/23067.png)| ![Short names](https://b.tile.openstreetmap.de/16/34123/23067.png) |
+| .. image:: https://b.tile.openstreetmap.org/16/34123/23067.png | .. image:: https://b.tile.openstreetmap.de/16/34123/23067.png |
++-----+-----+
 
 Installation
 ============
