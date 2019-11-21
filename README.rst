@@ -39,12 +39,12 @@ Contributions
 The next ToDos
 ----------------
 
-1. [ ] Build a Vagrant development box.
-1. [ ] Export .csv definition to pgSQL (PostGre Extension).
-1. [ ] Export .csv definition to Markdown
-1. [ ] Export .csv definition to JSON.
-1. [ ] Export .csv definition to XML.
-1. [ ] Export .csv definition to Python.
+1. [checkbox:unchecked] Build a Vagrant development box.
+1. [checkbox:unchecked] Export .csv definition to pgSQL (PostGre Extension).
+1. [checkbox:unchecked] Export .csv definition to Markdown
+1. [checkbox:unchecked] Export .csv definition to JSON.
+1. [checkbox:unchecked] Export .csv definition to XML.
+1. [checkbox:unchecked] Export .csv definition to Python.
 
 The build pipline
 -----------------
