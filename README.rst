@@ -18,6 +18,11 @@ Abbreviated street names on maps, allow to provide information on the same space
 |    :scale: 50 %:                                               |     :scale: 50 %:                                             |
 +----------------------------------------------------------------+---------------------------------------------------------------+
 
+.. image:: https://b.tile.openstreetmap.org/16/34123/23067.png
+   :scale: 50 %:
+
+.. image:: https://b.tile.openstreetmap.de/16/34123/23067.png
+   :scale: 50 %:
 Installation
 ============
 
