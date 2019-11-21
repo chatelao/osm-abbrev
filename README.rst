@@ -66,6 +66,7 @@ The project is focused on two parts:
 1. A several generators to produce language / format specific output like JSON, SQL, etc.
 
 .. image:: https://raw.githubusercontent.com/chatelao/osm-abbrev/master/img/build/build.png
+   :scale: 50 %
 
 Special thanks
 ==============
