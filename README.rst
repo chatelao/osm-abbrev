@@ -14,14 +14,13 @@ Abbreviated street names on maps, allow to provide information on the same space
 +----------------------------------------------------------------+---------------------------------------------------------------+
 | Long names                                                     | Short names                                                   |
 +================================================================+===============================================================+
-| .. image:: https://b.tile.openstreetmap.org/16/34123/23067.png | .. image:: https://b.tile.openstreetmap.de/16/34123/23067.png |
-|    :scale: 50 %:                                               |     :scale: 50 %:                                             |
+|  |img_org|                                                     | |img_de|                                                      |
 +----------------------------------------------------------------+---------------------------------------------------------------+
 
-.. image:: https://b.tile.openstreetmap.org/16/34123/23067.png
+.. |img_org| image:: https://b.tile.openstreetmap.org/16/34123/23067.png
    :scale: 50 %:
 
-.. image:: https://b.tile.openstreetmap.de/16/34123/23067.png
+.. |img_de| image:: https://b.tile.openstreetmap.de/16/34123/23067.png
    :scale: 50 %:
 Installation
 ============
