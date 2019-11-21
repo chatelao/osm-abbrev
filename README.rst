@@ -24,14 +24,14 @@ If you just installed the debian package all you have to do now ist to enable
 our extension in your PostgreSQL database as follows:
 
 .. code-block:: sql
-  CREATE EXTENSION osmabbrv;
+   CREATE EXTENSION osmabbrv;
 
 Usage
 ============
 
 The following functions are provided for use in the database. This sample will return
 .. code-block:: sql
-  SELECT osmabbrv_street_abbrev_all('Gutenbergstrasse')
+   SELECT osmabbrv_street_abbrev_all('Gutenbergstrasse')
 
 Gutenbergstr. to be used later.
 
