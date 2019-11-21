@@ -30,6 +30,7 @@ Usage
 ============
 
 The following functions are provided for use in the database. This sample will return
+
 .. code-block:: sql
    SELECT osmabbrv_street_abbrev_all('Gutenbergstrasse')
 
