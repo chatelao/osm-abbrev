@@ -39,11 +39,11 @@ Contributions
 The next ToDos
 ----------------
 
-* [ ] Build a Vagrant development box.
-* [ ] Export .csv definition to pgSQL (PostGre Extension).
-* [ ] Export .csv definition to Markdown
-* [ ] Export .csv definition to JSON.
-* [ ] Export .csv definition to XML.
+#. [ ] Build a Vagrant development box.
+#. [ ] Export .csv definition to pgSQL (PostGre Extension).
+#. [ ] Export .csv definition to Markdown
+#. [ ] Export .csv definition to JSON.
+#. [ ] Export .csv definition to XML.
 * [ ] Export .csv definition to Python.
 
 The build pipline
@@ -59,4 +59,6 @@ The project is focused on two parts:
 Special thanks
 ==============
 
-The technical foundation and inspiration for this project is the [mapnik-german-l10n](https://github.com/giggls/mapnik-german-l10n) , which provides a fabulous support to transliterate maps. A look over there is recommended for all omni-lingual fans.
+The technical foundation and inspiration for this project is the mapnik-german-l10n_ , which provides a fabulous support to transliterate maps. A look over there is recommended for all omni-lingual fans.
+
+.. _mapnik-german-l10n: https://github.com/giggls/mapnik-german-l10n
