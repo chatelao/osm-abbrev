@@ -8,11 +8,11 @@ Why abbreviations for street and place names?
 
 Abbreviated street names on maps, allow to provide information on the same space. See below the comparison between [OpenStreetMap.org](https://www.OpenStreetMap.org) with long and [OpenStreetMap.de](https://www.OpenStreetMap.de/karte.html) with shortend street names.
 
-+-----+-----+
++------------+-------------+
 | Long names | Short names |
-+-----+-----+
++------------+-------------+
 | .. image:: https://b.tile.openstreetmap.org/16/34123/23067.png | .. image:: https://b.tile.openstreetmap.de/16/34123/23067.png |
-+-----+-----+
++------------+-------------+
 
 Installation
 ============
@@ -54,7 +54,7 @@ The project is focused on two parts:
 1. A CSV file per language to define the rules and testcaeses
 1. A several generators to produce language / format specific output like JSON, SQL, etc.
 
-![Build Pipeline](img/build/build.png)
+.. image:: img/build/build.png
 
 Special thanks
 ==============
