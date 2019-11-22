@@ -2,7 +2,7 @@ Overview
 ########
 
 .. toctree::
-   :caption: Overview
+   :caption: Summary
    :maxdepth: 2
    
    README
