@@ -84,11 +84,3 @@ Special thanks
 The technical foundation and inspiration for this project was laid in the mapnik-german-l10n_ project, which focus on transliteration of maps. Having is recommended for all omni-lingual fans, as well as the use of OpenStreetMap.de_.
 
 .. _mapnik-german-l10n: https://github.com/giggls/mapnik-german-l10n
-
-Rules used
-==========
-
-.. csv-table:: German Abbreviations
-   :file: src/latin_de.csv
-   :widths: 30, 70
-   :header-rows: 1
