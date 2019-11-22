@@ -7,6 +7,7 @@ English
 .. csv-table:: German Abbreviations
    :file: ../src/latin_en.csv
    :header-rows: 1
+   :widths: 0,0,50,50,0
 
 Deutsch
 =======
