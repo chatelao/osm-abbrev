@@ -49,6 +49,13 @@ Contributions
 
 The project is far away from being completed, if you would like to contritute a little bit or a lot feel free to fork and hand in pull-request or just open an issue. Below are some major steps on the roadmap, but priorities may change.
 
+Abbreviation rules
+~~~~~~~~~~~~~~~~~~
+
+Target generators
+~~~~~~~~~~~~~~~~~
+
+
 The next ToDos
 ----------------
 
