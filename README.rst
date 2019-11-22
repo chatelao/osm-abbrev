@@ -1,7 +1,7 @@
 OSM Abbreviations
 #################
 
-The **osm-abbrev** project provides abbreviations odf addresses, especially streets, places and other geographic denominations.
+The **osm-abbrev** project provides abbreviations of addresses. Especially names of streets, places and other geographic places.
 
 Why abbreviations for street and place names?
 ==============================================
