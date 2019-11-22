@@ -2,7 +2,7 @@
    :caption: Project description
    :maxdepth: 2
    
-   ../README
+.. include: ../README.rst
 
 .. toctree::
    :caption: Rules descriptions
