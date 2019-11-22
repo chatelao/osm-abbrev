@@ -7,7 +7,7 @@ English
 .. csv-table::
    :file: ../src/latin_en.csv
    :header-rows: 1
-   :widths: 0,0,50,50,0
+   :widths: 0, 0, 50, 50, 0
 
 Deutsch
 =======
