@@ -33,8 +33,8 @@ Français
    :file: ../src/latin_fr.csv
    :header-rows: 1
 
-Dutch
-========
+Nederlands
+===========
 
 .. csv-table::
    :file: ../src/latin_nl.csv
@@ -49,6 +49,7 @@ Russian
 .. csv-table::
    :file: ../src/latin_ru.csv
    :header-rows: 1
+   
 Ukrainian
 =========
 
