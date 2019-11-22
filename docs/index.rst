@@ -3,12 +3,12 @@ Overview
 
 .. toctree::
    :caption: Summary
-   :maxdepth: 2
+   :maxdepth: 3
    
    README
 
 .. toctree::
    :caption: Rules descriptions
-   :maxdepth: 2
+   :maxdepth: 3
    
    RULES
