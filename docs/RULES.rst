@@ -39,19 +39,19 @@ Nederlands
    :file: ../src/latin_nl.csv
    :header-rows: 1
 
-Cyrilic rules
+Cyrillic rules
 *************
 
 Russian
 ========
 
 .. csv-table::
-   :file: ../src/latin_ru.csv
+   :file: ../src/cyrillic_ru.csv
    :header-rows: 1
    
 Ukrainian
 =========
 
 .. csv-table::
-   :file: ../src/latin_uk.csv
+   :file: ../src/cyrillic_uk.csv
    :header-rows: 1
