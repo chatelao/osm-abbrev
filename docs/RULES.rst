@@ -4,7 +4,7 @@ OSM abbreviation rules
 English
 =======
 
-.. csv-table:: German Abbreviations
+.. csv-table::
    :file: ../src/latin_en.csv
    :header-rows: 1
    :widths: 0,0,50,50,0
@@ -19,13 +19,13 @@ Deutsch
 Français
 ========
 
-.. csv-table:: German Abbreviations
+.. csv-table::
    :file: ../src/latin_en.csv
    :header-rows: 1
 
 Dutch
 ========
 
-.. csv-table:: German Abbreviations
+.. csv-table::
    :file: ../src/latin_en.csv
    :header-rows: 1
