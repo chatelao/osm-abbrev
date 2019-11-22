@@ -1,11 +1,9 @@
 .. toctree::
    :caption: Project description
    :maxdepth: 2
-
-.. include:: ../README.rst
+   ../README.rst
 
 .. toctree::
    :caption: Rules descriptions
    :maxdepth: 2
-
-.. include:: RULES.rst
+    RULES.rst
