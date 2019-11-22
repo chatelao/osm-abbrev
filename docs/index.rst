@@ -1,2 +1,2 @@
 .. include:: ../README.rst
-.. include:: ../RULES.rst
+.. include:: RULES.rst
