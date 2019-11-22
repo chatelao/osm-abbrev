@@ -8,4 +8,4 @@
    :caption: Rules descriptions
    :maxdepth: 2
    
-   docs/RULES
+   RULES
