@@ -1,7 +1,3 @@
-.. toctree::
-   :caption: Project description
-   :maxdepth: 2
-   
 .. include:: ../README.rst
 
 .. toctree::
