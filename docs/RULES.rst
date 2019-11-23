@@ -7,7 +7,7 @@ Latin rules
 English
 =======
 
-The list of abbreviations form the `English CSV file <https://github.com/chatelao/osm-abbrev/tree/master/src/latin_en.csv>`_.
+The list of abbreviations from the `English CSV file <https://github.com/chatelao/osm-abbrev/tree/master/src/latin_en.csv>`_.
 
 .. csv-table::
    :file: ../src/latin_en.csv
