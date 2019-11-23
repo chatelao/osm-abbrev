@@ -34,7 +34,7 @@ $(SUBDIRS):
 # I have no idea how to use the Makefile from "pg_config --pgxs"
 # for installation without interfering mine
 # so will do it manually (fo now)
-install: $(INSTALLDIRS) all 
+install: $(INSTALLDIRS) 
 	mkdir -p $(DESTDIR)$(EXTDIR)/extension
 	install -D -c -m 644 osmabbrv--$(EXTVERSION).sql $(DESTDIR)$(EXTDIR)/extension/
 	install -D -c -m 644 osmabbrv.control $(DESTDIR)$(EXTDIR)/extension/
