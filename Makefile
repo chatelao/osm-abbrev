@@ -9,13 +9,13 @@ EXTDIR=/usr/share/postgresql/10
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 
-all: $(patsubst %.md,%.html,$(wildcard *.md)) README Makefile $(SUBDIRS) osmabbrv.control gen/%.json
+all: $(patsubst %.rst,%.html,$(wildcard *.rst)) README Makefile $(SUBDIRS) osmabbrv.control gen/%.json
 
-README: README.md
-	pandoc --from markdown_github --to plain --standalone $< --output $@
+README: README.rst
+	pandoc --from rst --to plain --standalone $< --output $@
 
-%.html: %.md
-	pandoc --from markdown_github --to html --standalone $< --output $@
+%.html: %.rst
+	pandoc --from rst --to html --standalone $< --output $@
 
 gen/%.json: src/*.csv
 	csvtojson $< > gen/$(<F)
