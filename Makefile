@@ -9,7 +9,7 @@ EXTDIR=/usr/share/postgresql/10
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 
-all: $(patsubst %.rst,%.html,$(wildcard *.rst)) README Makefile $(SUBDIRS) osmabbrv.control gen/%.json
+all: $(patsubst %.rst,%.html,$(wildcard *.rst)) README Makefile $(SUBDIRS) osmabbrv.control $(patsubst %.csv,%.json,$(wildcard src/*.csv))
 
 README: README.rst
 	pandoc --from rst --to plain --standalone $< --output $@
@@ -17,10 +17,10 @@ README: README.rst
 %.html: %.rst
 	pandoc --from rst --to html --standalone $< --output $@
 
-gen/%.json: src/*.csv
-	$(foreach file,$^,csvtojson $(file) > $(patsubst src%,gen%,$(patsubst %.csv,%.json,$(file))))
+%.json: %.csv
+	csvtojson $(<) > $(<).json
 
-plpgsql/%.sql: gen/%.json
+%.sql: %.json
 	mustache $< src/street_abbrv.mustache.sql > $@
 
 .PHONY:	subdirs $(SUBDIRS)
