@@ -18,7 +18,7 @@ Deutsch
 
 Die Liste der Abkürzungen aus der `Deutschen CSV Datei <https://github.com/chatelao/osm-abbrev/tree/master/src/latin_de.csv>`_.
 
-.. csv-table:: German Abbreviations
+.. csv-table::
    :file: ../src/latin_de.csv
    :header-rows: 1
 
