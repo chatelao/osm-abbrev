@@ -39,8 +39,8 @@ install:
 
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir gen
-  - cat gen/latin_en.json
   - make all
+  - cat gen/latin_en.json
   - ls -ltra gen
   - sudo make install
   - ls -ltra /usr/share/postgresql/10/extension
