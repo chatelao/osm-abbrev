@@ -18,7 +18,7 @@ README: README.rst
 	pandoc --from rst --to html --standalone $< --output $@
 
 %.json: %.csv
-	csvtojson $(<) > $(<).json
+	csvtojson $(<) > $(<F).json
 
 %.sql: %.json
 	mustache $< src/street_abbrv.mustache.sql > $@
