@@ -18,7 +18,7 @@ README: README.rst
 	pandoc --from rst --to html --standalone $< --output $@
 
 gen/%.json: src/*.csv
-	csvtojson $< > gen/$(<F)
+	$(foreach file,$^,csvtojson $(file) > gen/$(file).json)
 
 plpgsql/%.sql: gen/%.json
 	mustache $< src/street_abbrv.mustache.sql > $@
