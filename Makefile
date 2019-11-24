@@ -22,8 +22,9 @@ all: $(JSON) $(SQL) $(DOCS) street_all.json osmabbrv.control
 
 # https://jqplay.org/s/zawJN6f2zG
 %.json: %.csv
-	csvtojson $(<) > gen/$(@)
-	jq '{( input_filename | gsub(".*/|\\_..\\.json$$";"") ): {( input_filename | gsub(".*_";"") | gsub("\\.json$$";"")): .}}' gen/$(@) >> gen/$(@)
+	csvtojson $(<) > gen/$(@).tmp
+	jq '{( input_filename | gsub(".*/|\\_..\\.json$$";"") ): {( input_filename | gsub(".*_";"") | gsub("\\.json$$";"")): .}}' gen/$(@).tmp > gen/$(@)
+	rm gen/$(@).tmp
 	
 street_all.json: %.json
 	jq -s 'reduce .[] as $item ({}; . * $item)' gen/*.json > gen/all.json
