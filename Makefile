@@ -23,7 +23,7 @@ all: $(JSON) $(DOCS) latin_fr.sql osmabbrv.control
 	csvtojson $(<) > gen/$(@)
 
 %.sql: %.json
-	mustache $(<) src/street_abbrv.mustache.sql > gen/$@
+	mustache gen/$(<) src/street_abbrv.mustache.sql > gen/$@
 
 clean: $(CLEANDIRS)
 	rm -rf $$(grep .gitignore)
