@@ -12,9 +12,10 @@ EXTDIR=/usr/share/postgresql/10
 CLEANDIRS   = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 DOCS = $(patsubst %.rst,%.html,$(wildcard *.rst))
-JSON = $(patsubst src/%.csv,%.json,$(wildcard src/*.csv))
+# JSON = $(patsubst src/%.csv,%.json,$(wildcard src/*.csv))
+SQL  = $(patsubst src/%.csv,%.sql,$(wildcard src/*.csv))
 
-all: $(JSON) $(DOCS) latin_fr.sql osmabbrv.control
+all: $(JSON) $(SQL) $(DOCS) osmabbrv.control
 
 %.html: %.rst
 	pandoc --from rst --to html --standalone $< --output $@
