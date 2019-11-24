@@ -12,7 +12,7 @@ EXTDIR=/usr/share/postgresql/10
 CLEANDIRS   = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 DOCS = $(patsubst %.rst,%.html,$(wildcard *.rst))
-JSON = $(patsubst src/%.csv,gen/%.json,$(wildcard src/*.csv))
+JSON = $(patsubst src/%.csv,%.json,$(wildcard src/*.csv))
 
 all: $(JSON) $(DOCS) latin_fr.sql osmabbrv.control
 
