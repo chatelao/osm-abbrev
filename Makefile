@@ -22,6 +22,7 @@ all: $(JSON) $(SQL) $(DOCS) osmabbrv.control
 
 %.json: %.csv
 	csvtojson $(<) > gen/$(@)
+	jq '{("src/test_en.json" | gsub(".*/|\\_..\\.json$";"") ): {("src/test_en.json" | gsub(".*_";"") | gsub("\\.json$$";"")): .}}' gen/$(@)
 	
 # street_all.json: %.json
 # jq {("src/test_en.json" | gsub(".*/|\\_..\\.json$";"") ): {(input_filename | gsub(".*/|\\.json$$";"")): .}}
