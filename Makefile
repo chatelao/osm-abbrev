@@ -9,7 +9,7 @@ EXTDIR=/usr/share/postgresql/10
 CLEANDIRS   = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 DOCS = $(patsubst %.rst,%.html,$(wildcard *.rst))
-CSVS = $(patsubst %.csv,%.json,$(wildcard src/*.csv))
+CSVS = $(patsubst src/%.csv,gen/%.json,$(wildcard src/*.csv))
 
 all: $(CSVS) $(DOCS) latin_fr.sql Makefile $(SUBDIRS) osmabbrv.control
 
