@@ -39,7 +39,7 @@ install:
 
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir gen
-  - make all
+  - make -np all
   - cat gen/latin_en.json
   - ls -ltra gen
   - sudo make install
