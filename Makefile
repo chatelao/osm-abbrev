@@ -6,13 +6,12 @@ EXTVERSION=$(shell head -n1 debian/changelog |cut -d \( -f 2 |cut -d \) -f 1)
 EXTDIR=/usr/share/postgresql/10
 
 # SUBDIRS = kanjitranscript icutranslit
-CLEANDIRS = $(SUBDIRS:%=clean-%)
+CLEANDIRS   = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
+DOCS = $(patsubst %.rst,%.html,$(wildcard *.rst))
+CSVS = $(patsubst %.csv,%.json,$(wildcard src/*.csv))
 
-all: $(patsubst %.rst,%.html,$(wildcard *.rst)) README Makefile $(SUBDIRS) osmabbrv.control $(patsubst %.csv,%.json,$(wildcard src/*.csv))
-
-README: README.rst
-	pandoc --from rst --to plain --standalone $< --output $@
+all: $(CSVS) $(DOCS) Makefile $(SUBDIRS) osmabbrv.control
 
 %.html: %.rst
 	pandoc --from rst --to html --standalone $< --output $@
