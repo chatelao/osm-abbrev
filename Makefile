@@ -15,7 +15,7 @@ DOCS = $(patsubst %.rst,%.html,$(wildcard *.rst))
 # JSON = $(patsubst src/%.csv,%.json,$(wildcard src/*.csv))
 SQL  = $(patsubst src/%.csv,%.sql,$(wildcard src/*.csv))
 
-all: $(JSON) $(SQL) $(DOCS) street_all.json osmabbrv.control
+all: $(JSON) $(SQL) $(DOCS) osmabbrv.control
 
 %.html: %.rst
 	pandoc --from rst --to html --standalone $< --output $@
@@ -26,8 +26,8 @@ all: $(JSON) $(SQL) $(DOCS) street_all.json osmabbrv.control
 	jq '{( input_filename | gsub(".*/|\\_..\\.json$$";"") ): {"lang": ( input_filename | gsub(".*_";"") | gsub("\\.json$$";""))}, "rules" : . }' gen/$(@).tmp > gen/$(@)
 	rm gen/$(@).tmp
 	
-street_all.json:
-	jq -s 'reduce .[] as $item ({}; . * $item)' gen/*.json > gen/all.json
+#street_all.json:
+#	jq -s 'reduce .[] as $item ({}; . * $item)' gen/*.json > gen/all.json
 	
 # jq {("src/test_en.json" | gsub(".*/|\\_..\\.json$";"") ): {(input_filename | gsub(".*/|\\.json$$";"")): .}}
 
