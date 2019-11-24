@@ -39,7 +39,7 @@ install:
 
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir gen
-  - make -np all
+  # - make -np all
   - make -nd all
   - make all
   - cat gen/latin_en.json
