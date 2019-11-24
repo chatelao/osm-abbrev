@@ -22,6 +22,9 @@ all: $(JSON) $(SQL) $(DOCS) osmabbrv.control
 
 %.json: %.csv
 	csvtojson $(<) > gen/$(@)
+	
+# street_all.json: %.json
+# jq {("src/test_en.json" | gsub(".*/|\\_..\\.json$";"") ): {(input_filename | gsub(".*/|\\.json$$";"")): .}}
 
 %.sql: %.json
 	mustache gen/$(<) src/street_abbrv.mustache.sql > gen/$@
