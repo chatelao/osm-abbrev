@@ -9,7 +9,7 @@ EXTDIR=/usr/share/postgresql/10
 CLEANDIRS   = $(SUBDIRS:%=clean-%)
 INSTALLDIRS = $(SUBDIRS:%=install-%)
 DOCS = $(patsubst %.rst,%.html,$(wildcard *.rst))
-CSVS = $(patsubst src/%.csv,%.json,$(wildcard src/*.csv))
+CSVS = $(patsubst %.csv,%.json,$(wildcard src/*.csv))
 
 all: $(CSVS) $(DOCS) Makefile $(SUBDIRS) osmabbrv.control
 
@@ -17,7 +17,7 @@ all: $(CSVS) $(DOCS) Makefile $(SUBDIRS) osmabbrv.control
 	pandoc --from rst --to html --standalone $< --output $@
 
 %.json: %.csv
-	csvtojson src/$(<) > gen/$@
+	csvtojson $(<) > $(patsubst src/%.csv,gen/%.json,$(<))
 
 %.sql: %.json
 	mustache $(<) src/street_abbrv.mustache.sql > $@
