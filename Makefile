@@ -20,9 +20,10 @@ all: $(JSON) $(SQL) $(DOCS) osmabbrv.control
 %.html: %.rst
 	pandoc --from rst --to html --standalone $< --output $@
 
+# https://jqplay.org/s/zawJN6f2zG
 %.json: %.csv
 	csvtojson $(<) > gen/$(@)
-	jq '{("src/test_en.json" | gsub(".*/|\\_..\\.json$";"") ): {("src/test_en.json" | gsub(".*_";"") | gsub("\\.json$$";"")): .}}' gen/$(@)
+	jq '{( input_filename | gsub(".*/|\\_..\\.json$";"") ): {( input_filename | gsub(".*_";"") | gsub("\\.json$$";"")): .}}' gen/$(@)
 	
 # street_all.json: %.json
 # jq {("src/test_en.json" | gsub(".*/|\\_..\\.json$";"") ): {(input_filename | gsub(".*/|\\.json$$";"")): .}}
