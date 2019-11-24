@@ -26,7 +26,7 @@ all: $(JSON) $(SQL) $(DOCS) street_all.json osmabbrv.control
 	jq '{( input_filename | gsub(".*/|\\_..\\.json$$";"") ): {( input_filename | gsub(".*_";"") | gsub("\\.json$$";"")): .}}' gen/$(@).tmp > gen/$(@)
 	rm gen/$(@).tmp
 	
-street_all.json: %.json
+street_all.json:
 	jq -s 'reduce .[] as $item ({}; . * $item)' gen/*.json > gen/all.json
 	
 # jq {("src/test_en.json" | gsub(".*/|\\_..\\.json$";"") ): {(input_filename | gsub(".*/|\\.json$$";"")): .}}
