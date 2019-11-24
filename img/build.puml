@@ -5,14 +5,16 @@ folder src {
   file "*.mustache" as mustache
 }
 folder gen {
-  file "*.sql"  as sql
-  file "*.json" as json
+  file "<group>_<lang>.sql"  as sql
+  file "<group>_<lang>.json" as part_json
+  file "all.json" as json
   folder "extension"  as ext
 }
 
 [CsvToJson]
 csv --> CsvToJson : 1.1
-CsvToJson -> json : 1.2
+CsvToJson -> part_json : 1.2
+part_json -> json : 1.3
 
 [Mustache]
 mustache --> Mustache : 2.1
