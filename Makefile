@@ -23,7 +23,7 @@ all: $(JSON) $(SQL) $(DOCS) street_all.json osmabbrv.control
 # https://jqplay.org/s/zawJN6f2zG
 %.json: %.csv
 	csvtojson $(<) > gen/$(@).tmp
-	jq '{( input_filename | gsub(".*/|\\_..\\.json$$";"") ): {( input_filename | gsub(".*_";"") | gsub("\\.json$$";"")): .}}' gen/$(@).tmp > gen/$(@)
+	jq '{( input_filename | gsub(".*/|\\_..\\.json$$";"") ): {"lang": ( input_filename | gsub(".*_";"") | gsub("\\.json$$";""))}, "rules" : . }' gen/$(@).tmp > gen/$(@)
 	rm gen/$(@).tmp
 	
 street_all.json:
