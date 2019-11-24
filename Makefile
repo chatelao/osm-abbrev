@@ -11,7 +11,7 @@ INSTALLDIRS = $(SUBDIRS:%=install-%)
 DOCS = $(patsubst %.rst,%.html,$(wildcard *.rst))
 CSVS = $(patsubst %.csv,%.json,$(wildcard src/*.csv))
 
-all: $(CSVS) $(DOCS) Makefile $(SUBDIRS) osmabbrv.control
+all: $(CSVS) $(DOCS) gen/latin_fr.sql Makefile $(SUBDIRS) osmabbrv.control
 
 %.html: %.rst
 	pandoc --from rst --to html --standalone $< --output $@
