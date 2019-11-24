@@ -20,10 +20,10 @@ all: $(JSON) $(DOCS) latin_fr.sql osmabbrv.control
 	pandoc --from rst --to html --standalone $< --output $@
 
 %.json: %.csv
-	csvtojson $(<) > $(@)
+	csvtojson $(<) > gen/$(@)
 
 %.sql: %.json
-	mustache $(<) src/street_abbrv.mustache.sql > $@
+	mustache $(<) src/street_abbrv.mustache.sql > gen/$@
 
 clean: $(CLEANDIRS)
 	rm -rf $$(grep .gitignore)
