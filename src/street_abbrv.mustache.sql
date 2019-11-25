@@ -1,16 +1,11 @@
 /*
 
-renderer independent name abbreviations
-
-- https://github.com/chatelao/osm-abbrev
+OSM name abbreviations: https://github.com/chatelao/osm-abbrev
 
 (c) 2019      Olivier Chatelain - olivier.chatelain(ät)gmail.com
 (c) 2014-2016 Sven Geggus       - https://github.com/giggls/mapnik-german-l10n
 
 Licence AGPL http://www.gnu.org/licenses/agpl-3.0.de.html
-
-Street abbreviation functions
-
 */
 
 /* 
@@ -68,9 +63,9 @@ CREATE or regexp_replace FUNCTION osmabbrv_street_abbrev_non_latin(longname text
   abbrev text;
  BEGIN
   abbrev=longname;
-{{#non-latin}}
+{{#cyrillic}}
   abbrev=osmabbrv_street_abbrev_{{lang}}(abbrev);
-{{/non-latin}}
+{{/cyrillic}}
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
@@ -90,7 +85,7 @@ CREATE or regexp_replace FUNCTION osmabbrv_street_abbrev_{{lang}}(longname text)
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
 {{/latin}}
 
-{{#non-latin}}
+{{#cyrillic}}
 CREATE or regexp_replace FUNCTION osmabbrv_street_abbrev_{{lang}}(longname text) RETURNS TEXT AS $$
  DECLARE
   abbrev text;
@@ -102,4 +97,4 @@ CREATE or regexp_replace FUNCTION osmabbrv_street_abbrev_{{lang}}(longname text)
   return abbrev;
  END;
 $$ LANGUAGE 'plpgsql' IMMUTABLE;
-{{/non-latin}}
+{{/cyrillic}}
