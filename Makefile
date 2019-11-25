@@ -30,6 +30,7 @@ all: $(JSON) $(SQL) $(DOCS) osmabbrv.control
 #	jq -s 'reduce .[] as $item ({}; . * $item)' gen/*.json > gen/all.json
 	
 # jq {("src/test_en.json" | gsub(".*/|\\_..\\.json$";"") ): {(input_filename | gsub(".*/|\\.json$$";"")): .}}
+# jq -n 'inputs | {"object": . , "filename": input_filename, "lineNumber": input_line_number}' *.json | jq -ns 'inputs'
 
 %.sql: %.json
 	mustache gen/$(<) src/street_abbrv.mustache.sql > gen/$@
