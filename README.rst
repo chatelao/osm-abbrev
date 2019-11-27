@@ -30,15 +30,17 @@ If you just installed the debian package all you have to do now ist to enable
 the extension in your PostgreSQL database:
 
 .. code-block:: sql
+  :linenos:
 
    CREATE EXTENSION osmabbrv;
 
 Usage
-============
+=====
 
 The following functions are provided for use in the database. This sample will return
 
 .. code-block:: sql
+  :linenos:
 
    SELECT osmabbrv_street_abbrev_all('Gutenbergstrasse')
 
