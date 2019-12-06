@@ -66,12 +66,12 @@ Target generators
 The next ToDos
 ----------------
 
-#. [ ] Build a Vagrant development box.
-#. [ ] Export .csv definition to pgSQL (PostGre Extension).
-#. [ ] Export .csv definition to Markdown
-#. [ ] Export .csv definition to JSON.
-#. [ ] Export .csv definition to XML.
-#. [ ] Export .csv definition to Python.
+1. [ ] Build a Vagrant development box.
+2. [ ] Export .csv definition to pgSQL (PostGre Extension).
+3. [ ] Export .csv definition to Markdown
+4. [ ] Export .csv definition to JSON.
+5. [ ] Export .csv definition to XML.
+6. [ ] Export .csv definition to Python.
 
 About the  build 
 ----------------
