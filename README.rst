@@ -83,7 +83,7 @@ The architecture is focused on two parts:
 #. Integrated tests in the CI/CD pipeline to prove that the code produced by 2. is working well according to the testset of 1.
 
 .. image:: https://raw.githubusercontent.com/chatelao/osm-abbrev/master/img/build/build.png
-   :width: 300 px
+   :width: 500 px
 
 Special thanks
 ==============
