@@ -1,6 +1,5 @@
 .. image:: https://readthedocs.org/projects/osm-abbrev/badge/?version=latest
-:target: https://osm-abbrev.readthedocs.io/en/latest/?badge=latest
-:alt: Documentation Status
+   :target: https://osm-abbrev.readthedocs.io/en/latest/?badge=latest
 
 .. readme-header-marker-do-not-remove
 
