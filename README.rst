@@ -66,21 +66,21 @@ Target generators
 The next ToDos
 ----------------
 
-1. [ ] Build a Vagrant development box.
-2. [ ] Export .csv definition to pgSQL (PostGre Extension).
-3. [ ] Export .csv definition to Markdown
-4. [ ] Export .csv definition to JSON.
-5. [ ] Export .csv definition to XML.
-6. [ ] Export .csv definition to Python.
+#. [ ] Build a Vagrant development box.
+#. [ ] Export .csv definition to pgSQL (PostGre Extension).
+#. [ ] Export .csv definition to Markdown
+#. [ ] Export .csv definition to JSON.
+#. [ ] Export .csv definition to XML.
+#. [ ] Export .csv definition to Python.
 
 About the  build 
 ----------------
 
 The architecture is focused on two parts:
 
-1. A set of CSV files, one per language to define the rules and testcaeses.
-1. A another set of generators or implementations to provide solutions for as many languages & formats as possible. Currently main target are JSON and PGPLSQL, but feel free to extend it with any language you master well.
-1. Integrated tests in the CI/CD pipeline to prove that the code produced by 2. is working well according to the testset of 1.
+#. A set of CSV files, one per language to define the rules and testcaeses.
+#. A another set of generators or implementations to provide solutions for as many languages & formats as possible. Currently main target are JSON and PGPLSQL, but feel free to extend it with any language you master well.
+#. Integrated tests in the CI/CD pipeline to prove that the code produced by 2. is working well according to the testset of 1.
 
 .. image:: https://raw.githubusercontent.com/chatelao/osm-abbrev/master/img/build/build.png
    :width: 300 px
